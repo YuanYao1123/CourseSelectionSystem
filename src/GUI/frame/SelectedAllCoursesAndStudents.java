@@ -151,11 +151,11 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 				new Object[][] {
 				},
 				new String[] {
-						"StudentID", "Student Name", "Course Name", "Lecturer", "Type", "Capacity"
+						"StudentID", "Student Name", "Course ID", "Course Name", "Lecturer", "Type", "Capacity"
 				}
 		) {
 			boolean[] columnEditables = new boolean[] {
-					false, false, false, false, false, false
+					false, false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -163,8 +163,8 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 		});
 		courseSelectedTable.getColumnModel().getColumn(0).setPreferredWidth(71);
 		courseSelectedTable.getColumnModel().getColumn(1).setPreferredWidth(84);
-		courseSelectedTable.getColumnModel().getColumn(2).setPreferredWidth(90);
-		courseSelectedTable.getColumnModel().getColumn(3).setPreferredWidth(83);
+		courseSelectedTable.getColumnModel().getColumn(3).setPreferredWidth(90);
+		courseSelectedTable.getColumnModel().getColumn(4).setPreferredWidth(83);
 		courseSelectedTable.setFont(new Font("SimSun", Font.PLAIN, 18));
 
 		scrollPane.setViewportView(courseSelectedTable);
