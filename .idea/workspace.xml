@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e543a4e4-2970-4f69-9a49-5c58438b2355" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/JDBC.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CourseSelectionSystem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JDBC/mysql-connector-java-8.0.29.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseModify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseSelection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/LogIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentModify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/listener/LogInListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/UserAccountDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/courseselection.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/feedback.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/sort.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/university.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/image/university.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/UserAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/UserAccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utility/dbutil/DBUtil.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2C9v3Vph3ztoHmHa6vBxCOsaBiX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/IdeaProject/CourseSelectionSystem/src/GUI/frame",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProject\CourseSelectionSystem\src\GUI\frame" />
+      <recent name="D:\IdeaProject\CourseSelectionSystem\src" />
+      <recent name="D:\IdeaProject\CourseSelectionSystem\JDBC" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.AdminMainPage">
+    <configuration name="AdminMainPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.AdminMainPage" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CourseManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.CourseManagement" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Profile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.Profile" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentMainPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.StudentMainPage" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentModify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.StudentModify" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AdminMainPage" />
+        <item itemvalue="Application.Profile" />
+        <item itemvalue="Application.CourseManagement" />
+        <item itemvalue="Application.StudentMainPage" />
+        <item itemvalue="Application.StudentModify" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e543a4e4-2970-4f69-9a49-5c58438b2355" name="Changes" comment="" />
+      <created>1658227417587</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658227417587</updated>
+      <workItem from="1658237212576" duration="16533000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
