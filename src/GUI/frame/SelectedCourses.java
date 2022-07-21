@@ -30,16 +30,16 @@ public class SelectedCourses extends JFrame {
 	public JTextField tfSearch;
 	public JTextField tfSort;
 
-	/**
-	 * Launch the application.
-	 */
+	private static SelectedCourses instance= new SelectedCourses();
+
+	public static SelectedCourses getInstance() {
+		return instance;
+	}
+
 	public static void main(String[] args) {
 		SelectedCourses frame = new SelectedCourses();
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public SelectedCourses() {
 		setLocationRelativeTo(null);
 		setResizable(false);

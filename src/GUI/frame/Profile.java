@@ -22,22 +22,21 @@ public class Profile extends JFrame {
 
 	private JPanel contentPane;
 	private JTable profileTable;
+	private static Profile instance= new Profile();
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		new Profile();
 	}
 
 	public static Profile getInstance() {
-		return new Profile();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private Profile() {
+	public Profile() {
 		setBounds(100, 100, 1383, 805);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -27,6 +27,7 @@ public class CourseAdd extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
 	public JComboBox cbType;
+	private static CourseAdd instance= new CourseAdd();
 
 
 	public static void main(String[] args) {
@@ -34,13 +35,13 @@ public class CourseAdd extends JFrame {
 	}
 
 	public static CourseAdd getInstance() {
-		return new CourseAdd();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private CourseAdd() {
+	public CourseAdd() {
 		setBounds(100, 100, 645, 642);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -23,22 +23,19 @@ public class AdminSelectedCourseModify extends JFrame {
 	
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
-
-	/**
-	 * Launch the application.
-	 */
+	private static AdminSelectedCourseModify instance= new AdminSelectedCourseModify();
 	public static void main(String[] args) {
 		new AdminSelectedCourseModify();
 	}
 	
 	public static AdminSelectedCourseModify getInstance() {
-		return new AdminSelectedCourseModify();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private AdminSelectedCourseModify() {
+	public AdminSelectedCourseModify() {
 		setResizable(false);
 		setBounds(100, 100, 635, 370);
 		contentPane = new JPanel();

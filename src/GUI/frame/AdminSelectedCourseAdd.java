@@ -24,21 +24,20 @@ public class AdminSelectedCourseAdd extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
 
-	/**
-	 * Launch the application.
-	 */
+	private static AdminSelectedCourseAdd instance= new AdminSelectedCourseAdd();
+
 	public static void main(String[] args) {
 		new AdminSelectedCourseAdd();
 	}
 	
 	public static AdminSelectedCourseAdd getInstance() {
-		return new AdminSelectedCourseAdd();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private AdminSelectedCourseAdd() {
+	public AdminSelectedCourseAdd() {
 		setResizable(false);
 		setBounds(100, 100, 635, 370);
 		contentPane = new JPanel();

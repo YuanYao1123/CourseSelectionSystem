@@ -27,20 +27,20 @@ public class CourseModify extends JFrame {
 	public JComboBox cbType;
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
-
+	private static CourseModify instance= new CourseModify();
 
 	public static void main(String[] args) {
 		new CourseModify();
 	}
 
 	public static CourseModify getInstance() {
-		return new CourseModify();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private CourseModify() {
+	public CourseModify() {
 		setBounds(100, 100, 645, 642);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -33,9 +33,12 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 	private JButton btnModify;
 	private JButton btnDelete;
 
-	/**
-	 * Launch the application.
-	 */
+	private static SelectedAllCoursesAndStudents instance= new SelectedAllCoursesAndStudents();
+
+	public static SelectedAllCoursesAndStudents getInstance() {
+		return instance;
+	}
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

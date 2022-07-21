@@ -20,6 +20,8 @@ import java.awt.event.MouseEvent;
 public class AdminMainPage extends JFrame {
 
 	private JPanel contentPane;
+	private static AdminMainPage instance= new AdminMainPage();
+
 
 	/**
 	 * Launch the application.
@@ -29,13 +31,13 @@ public class AdminMainPage extends JFrame {
 	}
 
 	public static AdminMainPage getInstance() {
-		return new AdminMainPage();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private AdminMainPage() {
+	public AdminMainPage() {
 		setResizable(false);
 		setBounds(100, 100, 1339, 757);
 		contentPane = new JPanel();

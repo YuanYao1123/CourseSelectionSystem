@@ -1,5 +1,7 @@
 package GUI.frame;
 
+import GUI.listener.LogInListener;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -29,11 +31,15 @@ public class LogIn extends JFrame {
 
 	private JPanel contentPane;
 	public JTextField tfUserName;
-	public JButton btnLogIn;
 	public JPasswordField tfPassword;
-	public JLabel lblNewLabel_2;
-	public JLabel lblNewLabel_3;
-	public JLabel lblNewLabel_4;
+	public JRadioButton rdbtnStudent;
+	public JRadioButton rdbtnAdmin;
+	private JButton btnLogIn;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private static LogIn instance= new LogIn();
+
 
 	/**
 	 * Launch the application.
@@ -43,7 +49,7 @@ public class LogIn extends JFrame {
 	}
 	
 	public static LogIn getInstance() {
-		return new LogIn();
+		return instance;
 	}
 
 	/**
@@ -76,6 +82,7 @@ public class LogIn extends JFrame {
 		btnLogIn = new JButton("LogIn");
 //		btnLogIn.addActionListener();
 		btnLogIn.setFont(new Font("SimSun", Font.BOLD, 22));
+		btnLogIn.addActionListener(new LogInListener());
 		
 		tfPassword = new JPasswordField();
 		tfPassword.setFont(new Font("SimSun", Font.PLAIN, 22));
@@ -89,14 +96,15 @@ public class LogIn extends JFrame {
 		lblNewLabel_4 = new JLabel("Role:");
 		lblNewLabel_4.setFont(new Font("SimSun", Font.PLAIN, 24));
 		
-		JRadioButton rdbtnStudent = new JRadioButton("Student");
+		rdbtnStudent = new JRadioButton("Student");
 		rdbtnStudent.setFont(new Font("SimSun", Font.PLAIN, 24));
 		
-		JRadioButton rdbtnAdmin = new JRadioButton("Admin");
+		rdbtnAdmin = new JRadioButton("Admin");
 		rdbtnAdmin.setFont(new Font("SimSun", Font.PLAIN, 24));
 		ButtonGroup bg=new ButtonGroup();
 		bg.add(rdbtnAdmin);
 		bg.add(rdbtnStudent);
+
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

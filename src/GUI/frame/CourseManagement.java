@@ -31,22 +31,20 @@ public class CourseManagement extends JFrame {
 	private JTable courseManagementTable;
 	public JTextField tfSearch;
 	public JTextField tfSort;
+	private static CourseManagement instance= new CourseManagement();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		new CourseManagement();
 	}
 
 	public static CourseManagement getInstance() {
-		return new CourseManagement();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private CourseManagement() {
+	public CourseManagement() {
 		setResizable(false);
 		setBounds(100, 100, 1157, 738);
 		contentPane = new JPanel();

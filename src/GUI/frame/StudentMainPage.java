@@ -20,6 +20,7 @@ import java.awt.event.MouseEvent;
 public class StudentMainPage extends JFrame {
 
 	private JPanel contentPane;
+	private static StudentMainPage instance= new StudentMainPage();
 
 	/**
 	 * Launch the application.
@@ -29,13 +30,13 @@ public class StudentMainPage extends JFrame {
 	}
 
 	public static StudentMainPage getInstance() {
-		return new StudentMainPage();
+		return instance;
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private StudentMainPage() {
+	public StudentMainPage() {
 		setResizable(false);
 		setBounds(100, 100, 1403, 574);
 		contentPane = new JPanel();

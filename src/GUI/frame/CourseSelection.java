@@ -30,6 +30,8 @@ public class CourseSelection extends JFrame {
 	private JTextField tfSearch;
 	private JTextField tfSort;
 
+	private static CourseSelection instance= new CourseSelection();
+
 	/**
 	 * Launch the application.
 	 */
@@ -38,7 +40,7 @@ public class CourseSelection extends JFrame {
 	}
 
 	public static CourseSelection getInstance() {
-		return new CourseSelection();
+		return instance;
 	}
 
 	/**
