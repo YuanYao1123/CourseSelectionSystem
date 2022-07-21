@@ -22,33 +22,42 @@ import javax.swing.JCheckBox;
 import javax.swing.ListSelectionModel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class CourseManagement extends JFrame {
+public class SelectedAllCoursesAndStudents extends JFrame {
 
 	private JPanel contentPane;
-	private JTable courseManagementTable;
+	private JTable courseSelectedTable;
 	public JTextField tfSearch;
 	public JTextField tfSort;
+	private JButton btnAdd;
+	private JButton btnModify;
+	private JButton btnDelete;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		new CourseManagement();
-	}
-
-	public static CourseManagement getInstance() {
-		return new CourseManagement();
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SelectedAllCoursesAndStudents frame = new SelectedAllCoursesAndStudents();
+					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	/**
 	 * Create the frame.
 	 */
-	private CourseManagement() {
+	public SelectedAllCoursesAndStudents() {
+		setLocationRelativeTo(null);
 		setResizable(false);
-		setBounds(100, 100, 1157, 738);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1158, 790);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -59,17 +68,7 @@ public class CourseManagement extends JFrame {
 
 		JScrollPane scrollPane = new JScrollPane();
 
-		JButton btnModify = new JButton("Modify");
-		btnModify.setFont(new Font("SimSun", Font.BOLD, 22));
-
-		JButton btnDelete = new JButton("Delete");
-		btnDelete.setFont(new Font("SimSun", Font.BOLD, 22));
-
 		tfSearch = new JTextField();
-//		tfSearch.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
 		tfSearch.setColumns(10);
 
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -80,42 +79,42 @@ public class CourseManagement extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 
 		tfSort = new JTextField();
-//		tfSort.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
 		tfSort.setColumns(10);
 
-		JButton btnAdd = new JButton("Add");
+		btnAdd = new JButton("Add");
 		btnAdd.setFont(new Font("SimSun", Font.BOLD, 22));
+
+		btnModify = new JButton("Modify");
+		btnModify.setFont(new Font("SimSun", Font.BOLD, 22));
+
+		btnDelete = new JButton("Delete");
+		btnDelete.setFont(new Font("SimSun", Font.BOLD, 22));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-				gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addGap(37)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(37)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
-														.addGroup(gl_contentPane.createSequentialGroup()
-																.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
-																.addGap(69)
-																.addComponent(lblNewLabel_1)
-																.addPreferredGap(ComponentPlacement.RELATED)
-																.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-																.addGap(124)
-																.addComponent(lblNewLabel_2)
-																.addPreferredGap(ComponentPlacement.UNRELATED)
-																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))))
-										.addGroup(gl_contentPane.createSequentialGroup()
-												.addContainerGap()
-												.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
-												.addGap(26)
-												.addComponent(btnModify)
-												.addGap(28)
-												.addComponent(btnDelete)
-												.addGap(13)))
+												.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
+												.addGap(69)
+												.addComponent(lblNewLabel_1)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+												.addGap(124)
+												.addComponent(lblNewLabel_2)
+												.addPreferredGap(ComponentPlacement.UNRELATED)
+												.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)))
 								.addContainerGap())
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+								.addContainerGap(709, Short.MAX_VALUE)
+								.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+								.addGap(36)
+								.addComponent(btnModify, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+								.addGap(37)
+								.addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+								.addGap(37))
 		);
 		gl_contentPane.setVerticalGroup(
 				gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -135,43 +134,40 @@ public class CourseManagement extends JFrame {
 														.addComponent(lblNewLabel_2)
 														.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 								.addGap(10)
-								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 524, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(btnDelete)
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
+								.addGap(30)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-										.addComponent(btnModify))
-								.addGap(26))
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+												.addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+												.addComponent(btnModify, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))
+								.addContainerGap(35, Short.MAX_VALUE))
 		);
 
-		courseManagementTable = new JTable();
-		courseManagementTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		courseManagementTable.setRowHeight(26);
-		courseManagementTable.setModel(new DefaultTableModel(
+		courseSelectedTable = new JTable();
+		courseSelectedTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		courseSelectedTable.setRowHeight(26);
+		courseSelectedTable.setModel(new DefaultTableModel(
 				new Object[][] {
 				},
 				new String[] {
-						"id", "Course Name", "Capacity", "Type", "Lecturer"
+						"StudentID", "Student Name", "Course Name", "Lecturer", "Type", "Capacity"
 				}
 		) {
 			boolean[] columnEditables = new boolean[] {
-					false, false, false, false, false
+					false, false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		courseManagementTable.getColumnModel().getColumn(0).setPreferredWidth(26);
-		courseManagementTable.getColumnModel().getColumn(1).setPreferredWidth(90);
-		courseManagementTable.getColumnModel().getColumn(2).setPreferredWidth(88);
-		courseManagementTable.getColumnModel().getColumn(3).setPreferredWidth(98);
-		courseManagementTable.getColumnModel().getColumn(4).setPreferredWidth(83);
-		courseManagementTable.setFont(new Font("SimSun", Font.PLAIN, 18));
+		courseSelectedTable.getColumnModel().getColumn(0).setPreferredWidth(71);
+		courseSelectedTable.getColumnModel().getColumn(1).setPreferredWidth(84);
+		courseSelectedTable.getColumnModel().getColumn(2).setPreferredWidth(90);
+		courseSelectedTable.getColumnModel().getColumn(3).setPreferredWidth(83);
+		courseSelectedTable.setFont(new Font("SimSun", Font.PLAIN, 18));
 
-		scrollPane.setViewportView(courseManagementTable);
+		scrollPane.setViewportView(courseSelectedTable);
 		contentPane.setLayout(gl_contentPane);
-		setLocationRelativeTo(null);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

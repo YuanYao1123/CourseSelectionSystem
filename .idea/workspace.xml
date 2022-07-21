@@ -5,40 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e543a4e4-2970-4f69-9a49-5c58438b2355" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/JDBC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CourseSelectionSystem.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDBC/mysql-connector-java-8.0.29.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseAdd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseModify.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/CourseSelection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/LogIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentAdd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/frame/StudentModify.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/listener/LogInListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/UserAccountDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/courseselection.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/feedback.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/sort.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/university.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/image/university.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/UserAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/UserAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/dbutil/DBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/frame/SelectedCourses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/CourseAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/CourseAdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/CourseManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/CourseManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/CourseModify.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/CourseModify.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/CourseSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/CourseSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/StudentAdd.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/StudentManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/SelectedAllCoursesAndStudents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/frame/StudentModify.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +69,7 @@
       <recent name="D:\IdeaProject\CourseSelectionSystem\JDBC" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AdminMainPage">
+  <component name="RunManager" selected="Application.AdminSelectedCourseModify">
     <configuration name="AdminMainPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.frame.AdminMainPage" />
       <module name="CourseSelectionSystem" />
@@ -106,8 +83,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CourseManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.CourseManagement" />
+    <configuration name="AdminSelectedCourseAdd" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.AdminSelectedCourseAdd" />
       <module name="CourseSelectionSystem" />
       <extension name="coverage">
         <pattern>
@@ -119,8 +96,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Profile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.Profile" />
+    <configuration name="AdminSelectedCourseModify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.AdminSelectedCourseModify" />
       <module name="CourseSelectionSystem" />
       <extension name="coverage">
         <pattern>
@@ -132,8 +109,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentMainPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.StudentMainPage" />
+    <configuration name="SelectedAllCoursesAndStudents" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.SelectedAllCoursesAndStudents" />
       <module name="CourseSelectionSystem" />
       <extension name="coverage">
         <pattern>
@@ -145,8 +122,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentModify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.StudentModify" />
+    <configuration name="SelectedCourses" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.SelectedCourses" />
       <module name="CourseSelectionSystem" />
       <extension name="coverage">
         <pattern>
@@ -160,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AdminSelectedCourseModify" />
+        <item itemvalue="Application.AdminSelectedCourseAdd" />
+        <item itemvalue="Application.SelectedAllCoursesAndStudents" />
+        <item itemvalue="Application.SelectedCourses" />
         <item itemvalue="Application.AdminMainPage" />
-        <item itemvalue="Application.Profile" />
-        <item itemvalue="Application.CourseManagement" />
-        <item itemvalue="Application.StudentMainPage" />
-        <item itemvalue="Application.StudentModify" />
       </list>
     </recent_temporary>
   </component>
@@ -176,11 +153,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658227417587</updated>
-      <workItem from="1658237212576" duration="16533000" />
+      <workItem from="1658237212576" duration="23028000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit.&#10;Main work:GUI of the system and DButil class">
+      <created>1658393315863</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1658393315863</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit.&#10;Main work:GUI of the system and DButil class" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit.&#10;Main work:GUI of the system and DButil class" />
   </component>
 </project>

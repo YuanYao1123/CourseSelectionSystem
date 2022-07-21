@@ -22,13 +22,11 @@ import javax.swing.JCheckBox;
 import javax.swing.ListSelectionModel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
-public class StudentManagement extends JFrame {
+public class SelectedCourses extends JFrame {
 
 	private JPanel contentPane;
-	private JTable studentManagementTable;
+	private JTable courseSelectedTable;
 	public JTextField tfSearch;
 	public JTextField tfSort;
 
@@ -36,19 +34,16 @@ public class StudentManagement extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		new StudentManagement();
+		SelectedCourses frame = new SelectedCourses();
 	}
-
-	public static StudentManagement getInstance() {
-		return new StudentManagement();
-	}
-
 
 	/**
 	 * Create the frame.
 	 */
-	private StudentManagement() {
+	public SelectedCourses() {
+		setLocationRelativeTo(null);
 		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1157, 738);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -60,17 +55,7 @@ public class StudentManagement extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		JButton btnModify = new JButton("Modify");
-		btnModify.setFont(new Font("SimSun", Font.BOLD, 22));
-		
-		JButton btnDelete = new JButton("Delete");
-		btnDelete.setFont(new Font("SimSun", Font.BOLD, 22));
-		
 		tfSearch = new JTextField();
-//		tfSearch.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
 		tfSearch.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -81,41 +66,24 @@ public class StudentManagement extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 		
 		tfSort = new JTextField();
-//		tfSort.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
 		tfSort.setColumns(10);
-		
-		JButton btnAdd = new JButton("Add");
-		btnAdd.setFont(new Font("SimSun", Font.BOLD, 22));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(37)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(37)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
-									.addGap(69)
-									.addComponent(lblNewLabel_1)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-									.addGap(124)
-									.addComponent(lblNewLabel_2)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
-							.addGap(26)
-							.addComponent(btnModify)
-							.addGap(28)
-							.addComponent(btnDelete)
-							.addGap(13)))
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
+							.addGap(69)
+							.addComponent(lblNewLabel_1)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+							.addGap(124)
+							.addComponent(lblNewLabel_2)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
@@ -136,40 +104,33 @@ public class StudentManagement extends JFrame {
 								.addComponent(lblNewLabel_2)
 								.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 					.addGap(10)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 524, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnDelete)
-						.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnModify))
-					.addGap(26))
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(27, Short.MAX_VALUE))
 		);
 		
-		studentManagementTable = new JTable();
-		studentManagementTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		studentManagementTable.setRowHeight(26);
-		studentManagementTable.setModel(new DefaultTableModel(
+		courseSelectedTable = new JTable();
+		courseSelectedTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		courseSelectedTable.setRowHeight(26);
+		courseSelectedTable.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
-				"student_id", "name", "gender", "age", "country", "major", "intake", "semester", "graduate_year"
+				"id", "Course Name", "Lecturer", "Grade"
 			}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false, false, false, false
+				false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
 		});
-		studentManagementTable.getColumnModel().getColumn(0).setPreferredWidth(26);
-		studentManagementTable.getColumnModel().getColumn(1).setPreferredWidth(90);
-		studentManagementTable.getColumnModel().getColumn(2).setPreferredWidth(88);
-		studentManagementTable.getColumnModel().getColumn(3).setPreferredWidth(98);
-		studentManagementTable.getColumnModel().getColumn(4).setPreferredWidth(83);
-		studentManagementTable.setFont(new Font("SimSun", Font.PLAIN, 18));
+		courseSelectedTable.getColumnModel().getColumn(0).setPreferredWidth(26);
+		courseSelectedTable.getColumnModel().getColumn(1).setPreferredWidth(90);
+		courseSelectedTable.getColumnModel().getColumn(2).setPreferredWidth(83);
+		courseSelectedTable.setFont(new Font("SimSun", Font.PLAIN, 18));
 
-		scrollPane.setViewportView(studentManagementTable);
+		scrollPane.setViewportView(courseSelectedTable);
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
