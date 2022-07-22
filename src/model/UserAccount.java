@@ -1,23 +1,23 @@
 package model;
 
 public class UserAccount {
-    String user_id;
+    String userID;
     String password;
 
     public UserAccount() {
     }
 
-    public UserAccount(String user_id, String password) {
-        this.user_id = user_id;
+    public UserAccount(String userID, String password) {
+        this.userID = userID;
         this.password = password;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getPassword() {

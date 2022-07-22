@@ -20,19 +20,11 @@ import java.awt.event.MouseEvent;
 public class AdminMainPage extends JFrame {
 
 	private JPanel contentPane;
-	private static AdminMainPage instance= new AdminMainPage();
 
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		new AdminMainPage();
 	}
 
-	public static AdminMainPage getInstance() {
-		return instance;
-	}
 
 	/**
 	 * Create the frame.
@@ -147,7 +139,7 @@ public class AdminMainPage extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
 }

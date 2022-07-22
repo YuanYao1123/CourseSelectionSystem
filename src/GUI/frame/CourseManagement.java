@@ -31,19 +31,11 @@ public class CourseManagement extends JFrame {
 	private JTable courseManagementTable;
 	public JTextField tfSearch;
 	public JTextField tfSort;
-	private static CourseManagement instance= new CourseManagement();
 
 	public static void main(String[] args) {
 		new CourseManagement();
 	}
 
-	public static CourseManagement getInstance() {
-		return instance;
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public CourseManagement() {
 		setResizable(false);
 		setBounds(100, 100, 1157, 738);
@@ -170,6 +162,6 @@ public class CourseManagement extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 }

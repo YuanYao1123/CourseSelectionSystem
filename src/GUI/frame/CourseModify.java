@@ -27,19 +27,13 @@ public class CourseModify extends JFrame {
 	public JComboBox cbType;
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
-	private static CourseModify instance= new CourseModify();
+
 
 	public static void main(String[] args) {
 		new CourseModify();
 	}
 
-	public static CourseModify getInstance() {
-		return instance;
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public CourseModify() {
 		setBounds(100, 100, 645, 642);
 		contentPane = new JPanel();
@@ -149,7 +143,7 @@ public class CourseModify extends JFrame {
 								.addGap(78))
 		);
 		contentPane.setLayout(gl_contentPane);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

@@ -24,15 +24,11 @@ public class AdminSelectedCourseAdd extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
 
-	private static AdminSelectedCourseAdd instance= new AdminSelectedCourseAdd();
 
 	public static void main(String[] args) {
 		new AdminSelectedCourseAdd();
 	}
 	
-	public static AdminSelectedCourseAdd getInstance() {
-		return instance;
-	}
 
 	/**
 	 * Create the frame.
@@ -109,7 +105,7 @@ public class AdminSelectedCourseAdd extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
 

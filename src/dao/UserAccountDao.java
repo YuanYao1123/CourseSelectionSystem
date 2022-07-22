@@ -19,7 +19,7 @@ public class UserAccountDao {
         Connection conn = DBUtil.getConnection();
         String sql="select * from user_account where user_id=? and password= ?";
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1,userAccount.getUser_id());
+        preparedStatement.setString(1,userAccount.getUserID());
         preparedStatement.setString(2,userAccount.getPassword());
         ResultSet rs = preparedStatement.executeQuery();
         if (rs.next()){

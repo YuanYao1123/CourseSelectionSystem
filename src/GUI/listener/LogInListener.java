@@ -11,29 +11,37 @@ import service.LoginWindowService;
 import javax.swing.*;
 
 public class LogInListener implements ActionListener{
+	private LogIn instance;
+
+	public LogInListener() {
+	}
+
+	public LogInListener(LogIn instance) {
+		this.instance = instance;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		LogIn logIn= LogIn.getInstance();
-		String username=logIn.tfUserName.getText();
-		String password=logIn.tfPassword.getText();
+		String username=instance.tfUserName.getText();
+		String password=instance.tfPassword.getText();
 		LoginWindowService loginWindowService = new LoginWindowService();
 		try {
-			if (logIn.rdbtnStudent.isSelected()){
+			if (instance.rdbtnStudent.isSelected()){
 				boolean flag=loginWindowService.login(username,password);
 				if (!flag){
-					JOptionPane.showMessageDialog(logIn,"Wrong account or password");
+					JOptionPane.showMessageDialog(instance,"Wrong account or password");
 				} else {
-					logIn.dispose();
-					StudentMainPage.getInstance();
+					instance.dispose();
+					StudentMainPage studentMainPage = new StudentMainPage();
+					studentMainPage.lbWelcome.setText("Welcome you: "+loginWindowService.getUsername());
 				}
-			} else if (logIn.rdbtnAdmin.isSelected()) {
+			} else if (instance.rdbtnAdmin.isSelected()) {
 
 			}
 		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(logIn,"connecting to database failed");
+			JOptionPane.showMessageDialog(instance,"connecting to database failed");
 		}
 
 	}
-	
+
 }

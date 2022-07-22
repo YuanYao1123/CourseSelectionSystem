@@ -33,33 +33,14 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 	private JButton btnModify;
 	private JButton btnDelete;
 
-	private static SelectedAllCoursesAndStudents instance= new SelectedAllCoursesAndStudents();
-
-	public static SelectedAllCoursesAndStudents getInstance() {
-		return instance;
-	}
 
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SelectedAllCoursesAndStudents frame = new SelectedAllCoursesAndStudents();
-					frame.setVisible(true);
-					frame.setLocationRelativeTo(null);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		SelectedAllCoursesAndStudents frame = new SelectedAllCoursesAndStudents();
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public SelectedAllCoursesAndStudents() {
-		setLocationRelativeTo(null);
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1158, 790);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -172,5 +153,10 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 
 		scrollPane.setViewportView(courseSelectedTable);
 		contentPane.setLayout(gl_contentPane);
+
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setVisible(true);
+
 	}
 }

@@ -1,5 +1,7 @@
 package GUI.frame;
 
+import GUI.listener.StudentMainPageListener;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -20,22 +22,17 @@ import java.awt.event.MouseEvent;
 public class StudentMainPage extends JFrame {
 
 	private JPanel contentPane;
-	private static StudentMainPage instance= new StudentMainPage();
+	public JLabel lbWelcome;
 
-	/**
-	 * Launch the application.
-	 */
+	public JLabel lbProfile;
+	public JLabel lbCourseSelection;
+	public JLabel lbFeedback;
+	public JLabel lbSelectedCourses;
 	public static void main(String[] args) {
 		StudentMainPage frame = new StudentMainPage();
 	}
 
-	public static StudentMainPage getInstance() {
-		return instance;
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public StudentMainPage() {
 		setResizable(false);
 		setBounds(100, 100, 1403, 574);
@@ -45,13 +42,7 @@ public class StudentMainPage extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Profile");
 		lblNewLabel.setFont(new Font("SimSun", Font.BOLD, 37));
-
-		JLabel lbProfile = new JLabel("");
-//		lbProfile.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//			}
-//		});
+		lbProfile = new JLabel("");
 		lbProfile.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/profile.png")));
 
 		JLabel lblCourseSelection = new JLabel("Course Selection");
@@ -60,36 +51,34 @@ public class StudentMainPage extends JFrame {
 		JLabel lblFeedback = new JLabel("Feedback");
 		lblFeedback.setFont(new Font("SimSun", Font.BOLD, 37));
 
-		JLabel lbCourseSelection = new JLabel("");
-//		lbCourseSelection.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//			}
-//		});
+		lbCourseSelection = new JLabel("");
 		lbCourseSelection.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/courseselection.png")));
 
-		JLabel lbFeedback = new JLabel("");
-//		lbFeedback.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//			}
-//		});
+		lbFeedback = new JLabel("");
+
 		lbFeedback.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/feedback.png")));
 
 		JLabel lblNewLabel_2 = new JLabel("XUniversity Course Selection System\r\n");
 		lblNewLabel_2.setForeground(SystemColor.activeCaption);
 		lblNewLabel_2.setFont(new Font("SimSun", Font.BOLD, 24));
 
-		JLabel lbWelcome = new JLabel("Welcome you xxx");
+		lbWelcome = new JLabel("Welcome you xxx");
 		lbWelcome.setForeground(SystemColor.activeCaption);
 		lbWelcome.setFont(new Font("SimSun", Font.BOLD, 24));
 
-		JLabel lbSelectedCourses = new JLabel("");
+		lbSelectedCourses = new JLabel("");
 		lbSelectedCourses.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/courseselection.png")));
 
-		JLabel lblSelectedCourses = new JLabel("Selected Courses");
-		lblSelectedCourses.setFont(new Font("SimSun", Font.BOLD, 37));
+		JLabel lblNewLabel_3 = new JLabel("Selected Courses");
+		lblNewLabel_3.setFont(new Font("SimSun", Font.BOLD, 37));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+
+		lbProfile.addMouseListener(new StudentMainPageListener(this));
+		lbCourseSelection.addMouseListener(new StudentMainPageListener(this));
+		lbSelectedCourses.addMouseListener(new StudentMainPageListener(this));
+		lbFeedback.addMouseListener(new StudentMainPageListener(this));
+
+
 		gl_contentPane.setHorizontalGroup(
 				gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -115,7 +104,7 @@ public class StudentMainPage extends JFrame {
 												.addGap(106))
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addGap(18)
-												.addComponent(lblSelectedCourses, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)
+												.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)
 												.addPreferredGap(ComponentPlacement.RELATED)))
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
@@ -161,14 +150,15 @@ public class StudentMainPage extends JFrame {
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addPreferredGap(ComponentPlacement.RELATED)
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-														.addComponent(lblSelectedCourses, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+														.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
 														.addComponent(lblCourseSelection, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))))
 								.addGap(85))
 		);
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
+
 
 }

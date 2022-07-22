@@ -30,12 +30,6 @@ public class SelectedCourses extends JFrame {
 	public JTextField tfSearch;
 	public JTextField tfSort;
 
-	private static SelectedCourses instance= new SelectedCourses();
-
-	public static SelectedCourses getInstance() {
-		return instance;
-	}
-
 	public static void main(String[] args) {
 		SelectedCourses frame = new SelectedCourses();
 	}
@@ -134,6 +128,6 @@ public class SelectedCourses extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 }

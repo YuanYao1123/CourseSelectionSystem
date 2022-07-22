@@ -6,15 +6,20 @@ import model.UserAccount;
 import java.sql.SQLException;
 
 public class LoginWindowService {
-    public static String username;  //remember the user that is in the system now
-    public boolean login(String username,String password) throws SQLException {
+    private String username;  //remember the user that is in the system now
+
+    public String getUsername() {
+        return username;
+    }
+
+    public boolean login(String username, String password) throws SQLException {
         UserAccount userAccount=new UserAccount();
-        userAccount.setUser_id(username);
+        userAccount.setUserID(username);
         userAccount.setPassword(password);
         UserAccountDao userAccountDao=new UserAccountDao();
         UserAccount loggedInUser = userAccountDao.search(userAccount);
         if (loggedInUser!=null){
-            username= loggedInUser.getUser_id();
+            this.username= loggedInUser.getUserID();
             return true;
         }else {
             return false;

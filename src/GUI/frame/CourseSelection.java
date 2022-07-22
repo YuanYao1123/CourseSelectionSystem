@@ -30,18 +30,12 @@ public class CourseSelection extends JFrame {
 	private JTextField tfSearch;
 	private JTextField tfSort;
 
-	private static CourseSelection instance= new CourseSelection();
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		new CourseSelection();
 	}
 
-	public static CourseSelection getInstance() {
-		return instance;
-	}
 
 	/**
 	 * Create the frame.
@@ -158,6 +152,6 @@ public class CourseSelection extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 }

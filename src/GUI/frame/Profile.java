@@ -22,15 +22,9 @@ public class Profile extends JFrame {
 
 	private JPanel contentPane;
 	private JTable profileTable;
-	private static Profile instance= new Profile();
-
 
 	public static void main(String[] args) {
 		new Profile();
-	}
-
-	public static Profile getInstance() {
-		return instance;
 	}
 
 	/**
@@ -100,7 +94,7 @@ public class Profile extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		DefaultTableModel dtm=(DefaultTableModel) profileTable.getModel();
 //		dtm.addRow(new String[] {"123","3213"});
 	}

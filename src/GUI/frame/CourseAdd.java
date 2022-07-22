@@ -27,20 +27,13 @@ public class CourseAdd extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
 	public JComboBox cbType;
-	private static CourseAdd instance= new CourseAdd();
 
 
 	public static void main(String[] args) {
 		new CourseAdd();
 	}
 
-	public static CourseAdd getInstance() {
-		return instance;
-	}
 
-	/**
-	 * Create the frame.
-	 */
 	public CourseAdd() {
 		setBounds(100, 100, 645, 642);
 		contentPane = new JPanel();
@@ -150,7 +143,7 @@ public class CourseAdd extends JFrame {
 								.addGap(78))
 		);
 		contentPane.setLayout(gl_contentPane);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
 	}

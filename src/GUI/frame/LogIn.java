@@ -38,23 +38,13 @@ public class LogIn extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
-	private static LogIn instance= new LogIn();
 
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		new LogIn();
 	}
-	
-	public static LogIn getInstance() {
-		return instance;
-	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	private LogIn() {
 		setResizable(false);
 		setTitle("Log In");
@@ -80,9 +70,8 @@ public class LogIn extends JFrame {
 		tfUserName.setColumns(10);
 		
 		btnLogIn = new JButton("LogIn");
-//		btnLogIn.addActionListener();
 		btnLogIn.setFont(new Font("SimSun", Font.BOLD, 22));
-		btnLogIn.addActionListener(new LogInListener());
+		btnLogIn.addActionListener(new LogInListener(this));   //add listener and pass the current object into the Listener
 		
 		tfPassword = new JPasswordField();
 		tfPassword.setFont(new Font("SimSun", Font.PLAIN, 22));
@@ -163,6 +152,6 @@ public class LogIn extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 }

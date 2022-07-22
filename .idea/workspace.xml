@@ -5,6 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e543a4e4-2970-4f69-9a49-5c58438b2355" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/listener/StudentMainPageListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/StudentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/frame/AdminSelectedCourseAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/AdminSelectedCourseAdd.java" afterDir="false" />
@@ -19,7 +23,9 @@
       <change beforePath="$PROJECT_DIR$/src/GUI/frame/SelectedCourses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/SelectedCourses.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/listener/LogInListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/listener/LogInListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/LoginWindowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/UserAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserAccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/UserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/LoginWindowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/LoginWindowService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +55,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/IdeaProject/CourseDataStructureAndAlgorithm",
     "node.js.detected.package.eslint": "true",
@@ -73,35 +78,9 @@
       <recent name="D:\IdeaProject\CourseSelectionSystem\JDBC" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LogIn">
+  <component name="RunManager" selected="Application.StudentMainPage">
     <configuration name="AdminMainPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.frame.AdminMainPage" />
-      <module name="CourseSelectionSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.frame.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdminSelectedCourseModify" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.AdminSelectedCourseModify" />
-      <module name="CourseSelectionSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.frame.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.CourseManagement" />
       <module name="CourseSelectionSystem" />
       <extension name="coverage">
         <pattern>
@@ -126,6 +105,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Profile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.Profile" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SelectedAllCoursesAndStudents" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.frame.SelectedAllCoursesAndStudents" />
       <module name="CourseSelectionSystem" />
@@ -139,13 +131,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StudentMainPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.StudentMainPage" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LogIn" />
-        <item itemvalue="Application.SelectedAllCoursesAndStudents" />
-        <item itemvalue="Application.CourseManagement" />
+        <item itemvalue="Application.StudentMainPage" />
         <item itemvalue="Application.AdminMainPage" />
-        <item itemvalue="Application.AdminSelectedCourseModify" />
+        <item itemvalue="Application.SelectedAllCoursesAndStudents" />
+        <item itemvalue="Application.LogIn" />
+        <item itemvalue="Application.Profile" />
       </list>
     </recent_temporary>
   </component>
@@ -157,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658227417587</updated>
-      <workItem from="1658237212576" duration="33418000" />
+      <workItem from="1658237212576" duration="45390000" />
     </task>
     <task id="LOCAL-00001" summary="first commit.&#10;Main work:GUI of the system and DButil class">
       <created>1658393315863</created>
@@ -180,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658400728599</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="set as singleton pattern and add a little codes of listener and service layer.">
+      <created>1658419479920</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658419479920</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +202,7 @@
     <MESSAGE value="first commit.&#10;Main work:GUI of the system and DButil class" />
     <MESSAGE value="Second commit.&#10;modified the functions and made changes on the UI respectively" />
     <MESSAGE value="a little modify to the table column item" />
-    <option name="LAST_COMMIT_MESSAGE" value="a little modify to the table column item" />
+    <MESSAGE value="set as singleton pattern and add a little codes of listener and service layer." />
+    <option name="LAST_COMMIT_MESSAGE" value="set as singleton pattern and add a little codes of listener and service layer." />
   </component>
 </project>
