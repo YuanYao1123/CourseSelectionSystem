@@ -1,5 +1,7 @@
 package GUI.frame;
 
+import GUI.model.ProfileTableModel;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -21,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class Profile extends JFrame {
 
 	private JPanel contentPane;
-	private JTable profileTable;
+	public JTable profileTable;
 
 	public static void main(String[] args) {
 		new Profile();
@@ -92,10 +94,12 @@ public class Profile extends JFrame {
 		profileTable.setRowHeight(50);
 		scrollPane.setViewportView(profileTable);
 		contentPane.setLayout(gl_contentPane);
+
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		DefaultTableModel dtm=(DefaultTableModel) profileTable.getModel();
+//		DefaultTableModel dtm=(DefaultTableModel) profileTable.getModel();
 //		dtm.addRow(new String[] {"123","3213"});
+		new ProfileTableModel(this).fillData();
 	}
 }

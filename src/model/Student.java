@@ -2,7 +2,7 @@ package model;
 
 public class Student {
     private String studentID;
-    private String NAME;
+    private String name;
     private String gender;
     private int age;
     private String country;
@@ -14,9 +14,9 @@ public class Student {
     public Student() {
     }
 
-    public Student(String studentID, String NAME, String gender, int age, String country, String major, String intake, String semester, int graduateYear) {
+    public Student(String studentID, String name, String gender, int age, String country, String major, String intake, String semester, int graduateYear) {
         this.studentID = studentID;
-        this.NAME = NAME;
+        this.name = name;
         this.gender = gender;
         this.age = age;
         this.country = country;
@@ -34,12 +34,12 @@ public class Student {
         this.studentID = studentID;
     }
 
-    public String getNAME() {
-        return NAME;
+    public String getName() {
+        return name;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGender() {

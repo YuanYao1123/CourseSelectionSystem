@@ -1,8 +1,8 @@
 package GUI.frame;
 
-import java.awt.BorderLayout;
-import java.awt.Checkbox;
-import java.awt.EventQueue;
+import GUI.listener.CourseSelectionActionListener;
+import GUI.listener.CourseSelectionMouseListener;
+import GUI.model.CourseSelectionTableModel;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,8 +17,6 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JComboBox;
-import javax.swing.JCheckBox;
 import javax.swing.ListSelectionModel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
@@ -26,11 +24,12 @@ import javax.swing.ImageIcon;
 public class CourseSelection extends JFrame {
 
 	private JPanel contentPane;
-	private JTable courseInfoTable;
-	private JTextField tfSearch;
-	private JTextField tfSort;
-
-
+	public JTable courseInfoTable;
+	public JTextField tfSearch;
+	public JTextField tfSort;
+	public JButton btnCancel;
+	public JButton btnSubmit;
+	public JLabel lblSort;
 
 	public static void main(String[] args) {
 		new CourseSelection();
@@ -53,11 +52,11 @@ public class CourseSelection extends JFrame {
 
 		JScrollPane scrollPane = new JScrollPane();
 
-		JButton btnCancel = new JButton("Cancel");
+		btnCancel = new JButton("Cancel");
 		btnCancel.setFont(new Font("SimSun", Font.BOLD, 22));
 
-		JButton btnNewButton_1 = new JButton("Submit");
-		btnNewButton_1.setFont(new Font("SimSun", Font.BOLD, 22));
+		btnSubmit = new JButton("Submit");
+		btnSubmit.setFont(new Font("SimSun", Font.BOLD, 22));
 
 		tfSearch = new JTextField();
 		tfSearch.setColumns(10);
@@ -66,8 +65,8 @@ public class CourseSelection extends JFrame {
 		lblNewLabel_1.setFont(new Font("SimSun", Font.PLAIN, 22));
 		lblNewLabel_1.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/search.png")));
 
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
+		lblSort = new JLabel("");
+		lblSort.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 
 		tfSort = new JTextField();
 		tfSort.setColumns(10);
@@ -87,14 +86,14 @@ public class CourseSelection extends JFrame {
 																.addPreferredGap(ComponentPlacement.RELATED)
 																.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 																.addGap(124)
-																.addComponent(lblNewLabel_2)
+																.addComponent(lblSort)
 																.addPreferredGap(ComponentPlacement.UNRELATED)
 																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))))
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addContainerGap()
 												.addComponent(btnCancel)
 												.addGap(93)
-												.addComponent(btnNewButton_1)
+												.addComponent(btnSubmit)
 												.addGap(13)))
 								.addContainerGap())
 		);
@@ -113,14 +112,14 @@ public class CourseSelection extends JFrame {
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addGap(31)
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblNewLabel_2)
+														.addComponent(lblSort)
 														.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 								.addGap(10)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 524, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(btnCancel)
-										.addComponent(btnNewButton_1))
+										.addComponent(btnSubmit))
 								.addGap(26))
 		);
 
@@ -131,7 +130,7 @@ public class CourseSelection extends JFrame {
 				new Object[][] {
 				},
 				new String[] {
-						"id", "Course Name", "Capacity", "Availability", "Lecturer"
+						"id", "Course Name", "Capacity", "Type", "Lecturer"
 				}
 		) {
 			boolean[] columnEditables = new boolean[] {
@@ -147,11 +146,21 @@ public class CourseSelection extends JFrame {
 		courseInfoTable.getColumnModel().getColumn(3).setPreferredWidth(98);
 		courseInfoTable.getColumnModel().getColumn(4).setPreferredWidth(83);
 		courseInfoTable.setFont(new Font("SimSun", Font.PLAIN, 18));
+		DefaultTableModel model = (DefaultTableModel) courseInfoTable.getModel();
+
 
 		scrollPane.setViewportView(courseInfoTable);
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		new CourseSelectionTableModel(this).fillData();
+		CourseSelectionActionListener courseSelectionActionListener =new CourseSelectionActionListener(this);
+		CourseSelectionMouseListener courseSelectionMouseListener=new CourseSelectionMouseListener(this);
+		tfSearch.addActionListener(courseSelectionActionListener);
+		btnSubmit.addActionListener(courseSelectionActionListener);
+		btnCancel.addActionListener(courseSelectionActionListener);
+		lblSort.addMouseListener(courseSelectionMouseListener);
 	}
 }

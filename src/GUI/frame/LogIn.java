@@ -93,7 +93,6 @@ public class LogIn extends JFrame {
 		ButtonGroup bg=new ButtonGroup();
 		bg.add(rdbtnAdmin);
 		bg.add(rdbtnStudent);
-
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

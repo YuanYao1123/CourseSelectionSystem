@@ -1,5 +1,12 @@
 package GUI.frame;
 
+import GUI.listener.CourseSelectionActionListener;
+import GUI.listener.CourseSelectionMouseListener;
+import GUI.listener.SelectedCoursesActionListener;
+import GUI.listener.SelectedCoursesMouseListener;
+import GUI.model.CourseSelectionTableModel;
+import GUI.model.SelectedCoursesTableModel;
+
 import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.EventQueue;
@@ -26,9 +33,12 @@ import javax.swing.ImageIcon;
 public class SelectedCourses extends JFrame {
 
 	private JPanel contentPane;
-	private JTable courseSelectedTable;
+	public JTable courseSelectedTable;
 	public JTextField tfSearch;
-	public JTextField tfSort;
+	private JTextField tfSort;
+	private JLabel lblSort;
+
+
 
 	public static void main(String[] args) {
 		SelectedCourses frame = new SelectedCourses();
@@ -56,8 +66,8 @@ public class SelectedCourses extends JFrame {
 		lblNewLabel_1.setFont(new Font("SimSun", Font.PLAIN, 22));
 		lblNewLabel_1.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/search.png")));
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
+		lblSort= new JLabel("");
+		lblSort.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 		
 		tfSort = new JTextField();
 		tfSort.setColumns(10);
@@ -75,7 +85,7 @@ public class SelectedCourses extends JFrame {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 							.addGap(124)
-							.addComponent(lblNewLabel_2)
+							.addComponent(lblSort)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
@@ -95,7 +105,7 @@ public class SelectedCourses extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(31)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel_2)
+								.addComponent(lblSort)
 								.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 					.addGap(10)
 					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
@@ -129,5 +139,11 @@ public class SelectedCourses extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		new SelectedCoursesTableModel(this).fillData();
+		SelectedCoursesActionListener selectedCoursesActionListener =new SelectedCoursesActionListener(this);
+		SelectedCoursesMouseListener selectedCoursesMouseListener=new SelectedCoursesMouseListener(this);
+		tfSearch.addActionListener(selectedCoursesActionListener);
+		lblSort.addMouseListener(selectedCoursesMouseListener);
 	}
 }

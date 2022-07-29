@@ -2,8 +2,10 @@ package GUI.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.SQLException;
 
+import GUI.frame.AdminMainPage;
 import GUI.frame.LogIn;
 import GUI.frame.StudentMainPage;
 import service.LoginWindowService;
@@ -25,22 +27,24 @@ public class LogInListener implements ActionListener{
 		String username=instance.tfUserName.getText();
 		String password=instance.tfPassword.getText();
 		LoginWindowService loginWindowService = new LoginWindowService();
-		try {
-			if (instance.rdbtnStudent.isSelected()){
-				boolean flag=loginWindowService.login(username,password);
-				if (!flag){
-					JOptionPane.showMessageDialog(instance,"Wrong account or password");
-				} else {
-					instance.dispose();
-					StudentMainPage studentMainPage = new StudentMainPage();
-					studentMainPage.lbWelcome.setText("Welcome you: "+loginWindowService.getUsername());
-				}
-			} else if (instance.rdbtnAdmin.isSelected()) {
-
+		if (instance.rdbtnStudent.isSelected()){
+			if (!loginWindowService.login(username,password,1)){
+				JOptionPane.showMessageDialog(instance,"Wrong account or password");
+			} else {
+				instance.dispose();
+				StudentMainPage studentMainPage = new StudentMainPage();
+				studentMainPage.lbWelcome.setText("Welcome you: "+loginWindowService.userID);
 			}
-		} catch (SQLException ex) {
-			JOptionPane.showMessageDialog(instance,"connecting to database failed");
+		} else if (instance.rdbtnAdmin.isSelected()) {
+			if (!loginWindowService.login(username,password,0)){
+				JOptionPane.showMessageDialog(instance,"Wrong account or password");
+			} else {
+				instance.dispose();
+				AdminMainPage adminMainPage = new AdminMainPage();
+				adminMainPage.lbWelcomeAdmin.setText("Welcome you: "+loginWindowService.userID);
+			}
 		}
+
 
 	}
 

@@ -1,7 +1,6 @@
 package GUI.frame;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import GUI.listener.AdminMainPageListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,14 +11,15 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Color;
 import java.awt.SystemColor;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class AdminMainPage extends JFrame {
 
 	private JPanel contentPane;
+	public JLabel lbCoursesSelectionInfo;
+	public JLabel lbCourseSelectionAdmin;
+	public JLabel lbFeedbackAdmin;
+	public JLabel lbWelcomeAdmin;
 
 	public static void main(String[] args) {
 		new AdminMainPage();
@@ -39,7 +39,7 @@ public class AdminMainPage extends JFrame {
 		JLabel lblFeedback = new JLabel("Course Management");
 		lblFeedback.setFont(new Font("SimSun", Font.BOLD, 37));
 
-		JLabel lbCourseSelectionAdmin = new JLabel("");
+		lbCourseSelectionAdmin = new JLabel("");
 
 //		lbCourseSelection.addMouseListener(new MouseAdapter() {
 //			@Override
@@ -48,7 +48,7 @@ public class AdminMainPage extends JFrame {
 //		});
 		lbCourseSelectionAdmin.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/courseselection.png")));
 
-		JLabel lbFeedbackAdmin = new JLabel("");
+		lbFeedbackAdmin = new JLabel("");
 //		lbFeedback.addMouseListener(new MouseAdapter() {
 //			@Override
 //			public void mouseClicked(MouseEvent e) {
@@ -60,7 +60,7 @@ public class AdminMainPage extends JFrame {
 		lblNewLabel_2.setForeground(SystemColor.activeCaption);
 		lblNewLabel_2.setFont(new Font("SimSun", Font.BOLD, 24));
 
-		JLabel lbWelcomeAdmin = new JLabel("Welcome you: admin xxx");
+		lbWelcomeAdmin = new JLabel("Welcome you: admin xxx");
 		lbWelcomeAdmin.setForeground(SystemColor.activeCaption);
 		lbWelcomeAdmin.setFont(new Font("SimSun", Font.BOLD, 24));
 
@@ -69,11 +69,11 @@ public class AdminMainPage extends JFrame {
 		JLabel lblReceivedFeedback = new JLabel("Received Feedback");
 		lblReceivedFeedback.setFont(new Font("SimSun", Font.BOLD, 37));
 
-		JLabel lbCoursesSelectionInfo = new JLabel("");
+		lbCoursesSelectionInfo = new JLabel("");
 		lbCoursesSelectionInfo.setIcon(new ImageIcon(AdminMainPage.class.getResource("/image/profile.png")));
 
-		JLabel lblCourseselectioninfo = new JLabel("Courses Selection Info");
-		lblCourseselectioninfo.setFont(new Font("SimSun", Font.BOLD, 37));
+		JLabel lblCourseSelectionInfo = new JLabel("Courses Selection Info");
+		lblCourseSelectionInfo.setFont(new Font("SimSun", Font.BOLD, 37));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 				gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -94,7 +94,7 @@ public class AdminMainPage extends JFrame {
 												.addGap(31)
 												.addComponent(lblFeedback)
 												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(lblCourseselectioninfo, GroupLayout.PREFERRED_SIZE, 465, GroupLayout.PREFERRED_SIZE)
+												.addComponent(lblCourseSelectionInfo, GroupLayout.PREFERRED_SIZE, 465, GroupLayout.PREFERRED_SIZE)
 												.addGap(18)))
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_contentPane.createSequentialGroup()
@@ -133,13 +133,18 @@ public class AdminMainPage extends JFrame {
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblReceivedFeedback, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
 										.addComponent(lblFeedback, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblCourseselectioninfo, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblCourseSelectionInfo, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
 								.addGap(192))
 		);
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		AdminMainPageListener adminMainPageListener=new AdminMainPageListener(this);
+		lbCourseSelectionAdmin.addMouseListener(adminMainPageListener);
+		lbCoursesSelectionInfo.addMouseListener(adminMainPageListener);
+		lbFeedbackAdmin.addMouseListener(adminMainPageListener);
 	}
 
 }

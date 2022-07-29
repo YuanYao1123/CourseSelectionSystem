@@ -27,11 +27,18 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 
 	private JPanel contentPane;
 	private JTable courseSelectedTable;
-	public JTextField tfSearch;
-	public JTextField tfSort;
-	private JButton btnAdd;
-	private JButton btnModify;
-	private JButton btnDelete;
+	public JTextField tfSearchCourse;
+	public JButton btnAdd;
+	public JButton btnModify;
+	public JButton btnDelete;
+	public JTextField tfSearchStudent;
+	public JLabel lblSortByStu;
+	public JLabel lblSortByCourse;
+
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_4;
 
 
 	public static void main(String[] args) {
@@ -41,7 +48,7 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 
 	public SelectedAllCoursesAndStudents() {
 		setResizable(false);
-		setBounds(100, 100, 1158, 790);
+		setBounds(100, 100, 1370, 792);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,18 +59,11 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 
 		JScrollPane scrollPane = new JScrollPane();
 
-		tfSearch = new JTextField();
-		tfSearch.setColumns(10);
+		tfSearchCourse = new JTextField();
+		tfSearchCourse.setColumns(10);
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setFont(new Font("SimSun", Font.PLAIN, 22));
-		lblNewLabel_1.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/search.png")));
-
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
-
-		tfSort = new JTextField();
-		tfSort.setColumns(10);
+		lblSortByCourse = new JLabel("");
+		lblSortByCourse.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 
 		btnAdd = new JButton("Add");
 		btnAdd.setFont(new Font("SimSun", Font.BOLD, 22));
@@ -73,51 +73,88 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 
 		btnDelete = new JButton("Delete");
 		btnDelete.setFont(new Font("SimSun", Font.BOLD, 22));
+
+		tfSearchStudent = new JTextField();
+		tfSearchStudent.setColumns(10);
+
+		lblNewLabel_1 = new JLabel("Course Name:");
+		lblNewLabel_1.setFont(new Font("SimSun", Font.PLAIN, 16));
+
+		lblNewLabel_3 = new JLabel("Student Name:");
+		lblNewLabel_3.setFont(new Font("SimSun", Font.PLAIN, 16));
+
+		lblNewLabel_2 = new JLabel("Course Sort");
+		lblNewLabel_2.setFont(new Font("SimSun", Font.PLAIN, 16));
+
+		lblNewLabel_4 = new JLabel("Student Sort");
+		lblNewLabel_4.setFont(new Font("SimSun", Font.PLAIN, 16));
+
+		lblSortByStu = new JLabel("");
+		lblSortByStu.setIcon(new ImageIcon(SelectedAllCoursesAndStudents.class.getResource("/image/sort.png")));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-				gl_contentPane.createParallelGroup(Alignment.LEADING)
+				gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 								.addGap(37)
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
+										.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+												.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1299, Short.MAX_VALUE)
+												.addContainerGap())
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
-												.addGap(69)
+												.addGap(71)
 												.addComponent(lblNewLabel_1)
-												.addPreferredGap(ComponentPlacement.RELATED)
-												.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-												.addGap(124)
-												.addComponent(lblNewLabel_2)
-												.addPreferredGap(ComponentPlacement.UNRELATED)
-												.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)))
-								.addContainerGap())
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-								.addContainerGap(709, Short.MAX_VALUE)
+												.addGap(18)
+												.addComponent(tfSearchCourse, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+												.addGap(47)
+												.addComponent(lblNewLabel_3)
+												.addGap(18)
+												.addComponent(tfSearchStudent, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addGroup(gl_contentPane.createSequentialGroup()
+																.addGap(41)
+																.addComponent(lblSortByCourse)
+																.addPreferredGap(ComponentPlacement.RELATED, 34, GroupLayout.PREFERRED_SIZE))
+														.addComponent(lblNewLabel_2, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 106, GroupLayout.PREFERRED_SIZE))
+												.addGap(59)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblNewLabel_4)
+														.addGroup(gl_contentPane.createSequentialGroup()
+																.addGap(28)
+																.addComponent(lblSortByStu, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)))
+												.addGap(182))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+								.addContainerGap(883, Short.MAX_VALUE)
 								.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
 								.addGap(36)
-								.addComponent(btnModify, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnModify, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 								.addGap(37)
-								.addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 								.addGap(37))
 		);
 		gl_contentPane.setVerticalGroup(
 				gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
+								.addContainerGap()
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(31)
-												.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+												.addGap(2)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)
+														.addComponent(tfSearchStudent, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addComponent(lblNewLabel_3)
+														.addComponent(tfSearchCourse, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+														.addComponent(lblNewLabel_1)))
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(22)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblNewLabel_1)
-														.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)))
+												.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(lblSortByStu, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(31)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblNewLabel_2)
-														.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-								.addGap(10)
+												.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(lblSortByCourse)))
+								.addGap(18)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
 								.addGap(30)
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -125,7 +162,7 @@ public class SelectedAllCoursesAndStudents extends JFrame {
 										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 												.addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 												.addComponent(btnModify, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))
-								.addContainerGap(35, Short.MAX_VALUE))
+								.addContainerGap(18, Short.MAX_VALUE))
 		);
 
 		courseSelectedTable = new JTable();
