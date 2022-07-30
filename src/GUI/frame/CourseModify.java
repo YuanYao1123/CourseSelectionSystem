@@ -1,24 +1,24 @@
 package GUI.frame;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import GUI.listener.CourseModifyActionListener;
+
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 public class CourseModify extends JFrame {
 
+	private CourseManagement instance;
 	private JPanel contentPane;
 	public JTextField tfID;
 	public JTextField tfCourseName;
@@ -29,12 +29,9 @@ public class CourseModify extends JFrame {
 	private JButton btnSubmit;
 
 
-	public static void main(String[] args) {
-		new CourseModify();
-	}
 
-
-	public CourseModify() {
+	public CourseModify(CourseManagement instance) {
+		this.instance = instance;
 		setBounds(100, 100, 645, 642);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -45,6 +42,7 @@ public class CourseModify extends JFrame {
 
 		tfID = new JTextField();
 		tfID.setColumns(10);
+		tfID.setEditable(false);
 
 		JLabel lblCourseName = new JLabel("Course Name");
 		lblCourseName.setFont(new Font("SimSun", Font.BOLD, 22));
@@ -76,6 +74,12 @@ public class CourseModify extends JFrame {
 		cbType = new JComboBox();
 		cbType.setFont(new Font("SimSun", Font.BOLD, 22));
 		cbType.setModel(new DefaultComboBoxModel(new String[] {"Public Compulsory Course", "Specialized Course", "Optional Course "}));
+
+		tfID.setFont(new Font("SimSun", Font.BOLD, 22));
+		tfLecture.setFont(new Font("SimSun", Font.BOLD, 22));
+		tfCapacity.setFont(new Font("SimSun", Font.BOLD, 22));
+		tfCourseName.setFont(new Font("SimSun", Font.BOLD, 22));
+
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 				gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -144,8 +148,10 @@ public class CourseModify extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(instance);
 		setVisible(true);
+		CourseModifyActionListener listener=new CourseModifyActionListener(this,instance);
+		btnSubmit.addActionListener(listener);
 	}
 
 }

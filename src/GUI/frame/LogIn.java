@@ -53,7 +53,7 @@ public class LogIn extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("XUniversity Course Selection System");
+		JLabel lblNewLabel = new JLabel("YZ University Course Selection System");
 		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setAlignmentX(Component.CENTER_ALIGNMENT);

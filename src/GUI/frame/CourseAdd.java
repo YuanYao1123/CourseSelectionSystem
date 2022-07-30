@@ -1,24 +1,25 @@
 package GUI.frame;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import GUI.listener.CourseAddActionListener;
+import GUI.model.CourseManagementModel;
+
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
 public class CourseAdd extends JFrame {
 
+	private CourseManagement instance;
 	private JPanel contentPane;
 	public JTextField tfID;
 	public JTextField tfCourseName;
@@ -29,12 +30,8 @@ public class CourseAdd extends JFrame {
 	public JComboBox cbType;
 
 
-	public static void main(String[] args) {
-		new CourseAdd();
-	}
-
-
-	public CourseAdd() {
+	public CourseAdd(CourseManagement instance) {
+		this.instance = instance;
 		setBounds(100, 100, 645, 642);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -44,6 +41,7 @@ public class CourseAdd extends JFrame {
 		lblNewLabel.setFont(new Font("SimSun", Font.BOLD, 22));
 
 		tfID = new JTextField();
+		tfID.setFont(new Font("SimSun", Font.BOLD, 22));
 		tfID.setColumns(10);
 
 		JLabel lblCourseName = new JLabel("Course Name");
@@ -59,12 +57,15 @@ public class CourseAdd extends JFrame {
 		lblNewLabel_4.setFont(new Font("SimSun", Font.BOLD, 22));
 
 		tfCourseName = new JTextField();
+		tfCourseName.setFont(new Font("SimSun", Font.BOLD, 22));
 		tfCourseName.setColumns(10);
 
 		tfCapacity = new JTextField();
+		tfCapacity.setFont(new Font("SimSun", Font.BOLD, 22));
 		tfCapacity.setColumns(10);
 
 		tfLecture = new JTextField();
+		tfLecture.setFont(new Font("SimSun", Font.BOLD, 22));
 		tfLecture.setColumns(10);
 
 		lblNewLabel_1 = new JLabel("Add  Course");
@@ -144,8 +145,11 @@ public class CourseAdd extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(instance);
 		setVisible(true);
+
+		CourseAddActionListener listener=new CourseAddActionListener(this,instance);
+		btnSubmit.addActionListener(listener);
 	}
 
 }

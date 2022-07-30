@@ -10,15 +10,15 @@ import java.awt.event.MouseListener;
 import java.util.List;
 
 public class SelectedCoursesMouseListener implements MouseListener {
-    private SelectedCourses selectedCourses;
+    private SelectedCourses instance;
     private SelectedCoursesService selectedCoursesService;
 
     private SelectedCoursesTableModel selectedCoursesTableModel;
 
-    public SelectedCoursesMouseListener(SelectedCourses selectedCourses) {
-        this.selectedCourses = selectedCourses;
+    public SelectedCoursesMouseListener(SelectedCourses instance) {
+        this.instance = instance;
         selectedCoursesService =new SelectedCoursesService();
-        selectedCoursesTableModel =new SelectedCoursesTableModel(selectedCourses);
+        selectedCoursesTableModel =new SelectedCoursesTableModel(instance);
     }
 
     @Override

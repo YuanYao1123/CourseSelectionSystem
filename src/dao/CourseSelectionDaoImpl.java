@@ -21,9 +21,9 @@ public class CourseSelectionDaoImpl extends BaseDAO<CourseSelection> implements 
     }
 
     @Override
-    public int modify(Connection conn, CourseSelection courseSelection) {
-        String sql="update course_selection set course_id = ? where stu_id=?";
-        return update(conn,sql,courseSelection.getCourseID(),courseSelection.getStuID());
+    public int modify(Connection conn,String oldCourseID, CourseSelection courseSelection) {
+        String sql="update course_selection set course_id = ? where stu_id=? and course_id=?";
+        return update(conn,sql,courseSelection.getCourseID(),courseSelection.getStuID(),oldCourseID);
     }
 
     public int batchAddData(){

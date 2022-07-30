@@ -1,5 +1,8 @@
 package GUI.frame;
 
+import GUI.listener.AdminSelectedCourseAddListener;
+import GUI.listener.CourseAddActionListener;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -16,24 +19,17 @@ import java.awt.Font;
 import javax.swing.JButton;
 
 public class AdminSelectedCourseAdd extends JFrame {
-
+	private SelectedAllCoursesAndStudents parentInstance;
 	private JPanel contentPane;
 	public JTextField tfStudentID;
 	public JTextField tfCourseID;
 	
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
-
-
-	public static void main(String[] args) {
-		new AdminSelectedCourseAdd();
-	}
 	
 
-	/**
-	 * Create the frame.
-	 */
-	public AdminSelectedCourseAdd() {
+	public AdminSelectedCourseAdd(SelectedAllCoursesAndStudents parentInstance) {
+		this.parentInstance=parentInstance;
 		setResizable(false);
 		setBounds(100, 100, 635, 370);
 		contentPane = new JPanel();
@@ -42,16 +38,19 @@ public class AdminSelectedCourseAdd extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Student ID");
 		lblNewLabel.setFont(new Font("SimSun", Font.BOLD, 22));
-		
+
 		tfStudentID = new JTextField();
 		tfStudentID.setColumns(10);
-		
+
 		JLabel lblCourseName = new JLabel("CourseID");
 		lblCourseName.setFont(new Font("SimSun", Font.BOLD, 22));
 		
 		tfCourseID = new JTextField();
 		tfCourseID.setColumns(10);
-		
+
+		tfCourseID.setFont(new Font("SimSun", Font.BOLD, 22));
+		tfStudentID.setFont(new Font("SimSun", Font.BOLD, 22));
+
 		lblNewLabel_1 = new JLabel("Add  Selection");
 		lblNewLabel_1.setFont(new Font("SimSun", Font.BOLD, 28));
 		
@@ -107,6 +106,11 @@ public class AdminSelectedCourseAdd extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
+//		AdminCourseSelectionAddListener listener=new AdminCourseSelectionAddListener(this);
+//		btnSubmit.addActionListener(listener);
+
+		AdminSelectedCourseAddListener listener=new AdminSelectedCourseAddListener(this,parentInstance);
+		btnSubmit.addActionListener(listener);
 	}
 
 }

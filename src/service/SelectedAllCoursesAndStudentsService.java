@@ -2,9 +2,13 @@ package service;
 
 import dao.CourseDao;
 import dao.CourseDaoImpl;
+import dao.CourseSelectionDao;
+import dao.CourseSelectionDaoImpl;
+import model.Course;
 import utility.DBUtil;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -51,21 +55,48 @@ public class SelectedAllCoursesAndStudentsService {
         return courseList;
     }
 
-    public Object[] getSearchedObjectByStudentName(String courseName){
+    public List<Object[]> getSearchedObjectByStudentName(String courseName){
+        List<Object[]> searchedCourseList=new ArrayList<>();
         for (Object[] course : courseList) {
-            if (courseName.equals(course[1].toString())){
-                return course;
+            if (course[1].toString().contains(courseName)){
+                searchedCourseList.add(course);
             }
         }
-        return null;
+        return searchedCourseList;
     }
 
-    public Object[] getSearchedObjectByCourseName(String courseName){
+    public List<Object[]> getSearchedObjectByCourseName(String courseName){
+        List<Object[]> searchedCourseList=new ArrayList<>();
         for (Object[] course : courseList) {
-            if (courseName.equals(course[3].toString())){
-                return course;
+            if (course[3].toString().contains(courseName)){
+                searchedCourseList.add(course);
             }
         }
-        return null;
+        return searchedCourseList;
+    }
+
+    public int deleteSelectedCourseSelection(String studentID, String courseID) {
+        Connection conn=null;
+        try {
+            conn = DBUtil.getConnection();
+            conn.setAutoCommit(false);
+            CourseSelectionDao courseSelectionDao=new CourseSelectionDaoImpl();
+            int flag1 = courseSelectionDao.delete(conn, studentID, courseID);
+            CourseDao dao=new CourseDaoImpl();
+            Course course = dao.getCourseByID(conn, courseID);
+            if (course!=null) {
+                course.setCapacity(course.getCapacity() + 1);
+                int flag2 = dao.modifyCourse(conn, course);
+                if (flag1 == 1 && flag2 == 1) {
+                    conn.commit();
+                    return 1;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  finally {
+            DBUtil.closeResources(conn,null,null);
+        }
+        return 0;
     }
 }

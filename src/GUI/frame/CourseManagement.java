@@ -1,5 +1,12 @@
 package GUI.frame;
 
+import GUI.listener.CourseManagementActionListener;
+import GUI.listener.CourseManagementMouseListener;
+import GUI.listener.SelectedAllCoursesAndItsStudentsActionListener;
+import GUI.listener.SelectedAllCoursesAndItsStudentsMouseListener;
+import GUI.model.CourseManagementModel;
+import GUI.model.SelectedAllCoursesAndItsStudentsTableModel;
+
 import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.EventQueue;
@@ -28,9 +35,13 @@ import java.awt.event.ActionEvent;
 public class CourseManagement extends JFrame {
 
 	private JPanel contentPane;
-	private JTable courseManagementTable;
+	public JTable courseManagementTable;
 	public JTextField tfSearch;
-	public JTextField tfSort;
+	public JButton btnAdd;
+	public JButton btnRefresh;
+	public JButton btnModify;
+	public JButton btnDelete;
+	public JLabel lblSort;
 
 	public static void main(String[] args) {
 		new CourseManagement();
@@ -43,16 +54,16 @@ public class CourseManagement extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		JLabel lblNewLabel = new JLabel("X University");
+		JLabel lblNewLabel = new JLabel("YZ University");
 		lblNewLabel.setForeground(new Color(188, 143, 143));
 		lblNewLabel.setFont(new Font("SimSun", Font.BOLD, 28));
 
 		JScrollPane scrollPane = new JScrollPane();
 
-		JButton btnModify = new JButton("Modify");
+		btnModify = new JButton("Modify");
 		btnModify.setFont(new Font("SimSun", Font.BOLD, 22));
 
-		JButton btnDelete = new JButton("Delete");
+		btnDelete = new JButton("Delete");
 		btnDelete.setFont(new Font("SimSun", Font.BOLD, 22));
 
 		tfSearch = new JTextField();
@@ -66,18 +77,16 @@ public class CourseManagement extends JFrame {
 		lblNewLabel_1.setFont(new Font("SimSun", Font.PLAIN, 22));
 		lblNewLabel_1.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/search.png")));
 
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
+		lblSort = new JLabel("");
+		lblSort.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 
-		tfSort = new JTextField();
-//		tfSort.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
-		tfSort.setColumns(10);
 
-		JButton btnAdd = new JButton("Add");
+		btnAdd = new JButton("Add");
 		btnAdd.setFont(new Font("SimSun", Font.BOLD, 22));
+
+		btnRefresh = new JButton("Refresh");
+		btnRefresh.setForeground(new Color(102, 102, 153));
+		btnRefresh.setFont(new Font("SimSun", Font.BOLD, 22));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 				gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -88,15 +97,17 @@ public class CourseManagement extends JFrame {
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 														.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
 														.addGroup(gl_contentPane.createSequentialGroup()
-																.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
+																.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
 																.addGap(69)
 																.addComponent(lblNewLabel_1)
 																.addPreferredGap(ComponentPlacement.RELATED)
 																.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 																.addGap(124)
-																.addComponent(lblNewLabel_2)
+																.addComponent(lblSort)
 																.addPreferredGap(ComponentPlacement.UNRELATED)
-																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))))
+																.addPreferredGap(ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
+																.addGap(106))))
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addContainerGap()
 												.addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 105, GroupLayout.PREFERRED_SIZE)
@@ -122,8 +133,9 @@ public class CourseManagement extends JFrame {
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addGap(31)
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblNewLabel_2)
-														.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+														.addComponent(lblSort)
+														.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))))
 								.addGap(10)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 524, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
@@ -163,5 +175,17 @@ public class CourseManagement extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		CourseManagementActionListener actionListener=new CourseManagementActionListener(this);
+		CourseManagementMouseListener mouseListener=new CourseManagementMouseListener(this);
+		CourseManagementModel model=new CourseManagementModel(this);
+
+		model.fillData();
+		btnAdd.addActionListener(actionListener);
+		btnModify.addActionListener(actionListener);
+		btnDelete.addActionListener(actionListener);
+		tfSearch.addActionListener(actionListener);
+		btnRefresh.addActionListener(actionListener);
+		lblSort.addMouseListener(mouseListener);
 	}
 }

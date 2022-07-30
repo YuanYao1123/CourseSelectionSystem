@@ -2,6 +2,10 @@ package service;
 
 import dao.CourseDao;
 import dao.CourseDaoImpl;
+import dao.CourseSelectionDao;
+import dao.CourseSelectionDaoImpl;
+import model.Course;
+import model.CourseSelection;
 import utility.DBUtil;
 import java.sql.Connection;
 import java.util.Comparator;
@@ -46,4 +50,52 @@ public class SelectedCoursesService {
         return null;
     }
 
+    public int deleteSelectedCourseSelection(String studentID, String courseID) {
+        Connection conn=null;
+        try {
+            conn = DBUtil.getConnection();
+            CourseSelectionDao courseSelectionDao=new CourseSelectionDaoImpl();
+            if(courseSelectionDao.delete(conn,studentID,courseID)>0){
+                return 1;
+            }else {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }  finally {
+            DBUtil.closeResources(conn,null,null);
+        }
+        return 0;
+    }
+
+    public int deleteSelectedCourseSelection(List<CourseSelection> courseSelectionList) {
+        Connection conn=null;
+        try {
+            conn = DBUtil.getConnection();
+            conn.setAutoCommit(false);
+            CourseSelectionDao courseSelectionDao=new CourseSelectionDaoImpl();
+            CourseDao courseDao=new CourseDaoImpl();
+            for (CourseSelection courseSelection :  courseSelectionList) {
+                int flag1 = courseSelectionDao.delete(conn, courseSelection.getStuID(), courseSelection.getCourseID());
+                Course course = courseDao.getCourseByID(conn, courseSelection.getCourseID());
+                if (course!=null){
+                    course.setCapacity(course.getCapacity()-1);
+                    int flag2 = courseDao.modifyCourse(conn, course);
+                    if (flag1==0 || flag2==0){
+                        return 0;
+                    }
+                }else {
+                    return 0;
+                }
+            }
+            conn.commit();
+            return 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }  finally {
+            DBUtil.closeResources(conn,null,null);
+        }
+    }
 }

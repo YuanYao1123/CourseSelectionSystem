@@ -15,7 +15,11 @@ public class CourseDaoImpl extends BaseDAO<Course> implements CourseDao{
     @Override
     public int addCourse(Connection conn, Course course) {
         String sql="insert into course (id, course_name, capacity, type, lecture) values (?,?,?,?,?)";
-        return update(conn,sql,course.getID(),course.getCourseName(),course.getCapacity(),course.getType(),course.getLecture());
+        if (course.getCapacity()>=0&& !(course.getCourseName().equals("")||course.getCourseName()==null)) {
+            return update(conn, sql, course.getID(), course.getCourseName(), course.getCapacity(), course.getType(), course.getLecture());
+        }else {
+            return 0;
+        }
     }
 
     @Override
@@ -26,8 +30,12 @@ public class CourseDaoImpl extends BaseDAO<Course> implements CourseDao{
 
     @Override
     public int modifyCourse(Connection conn, Course course) {
-        String sql="update course set course_name=?,capacity=?,type=?,lecture=? where id=?";
-        return update(conn, sql, course.getCourseName(), course.getCapacity(), course.getType(), course.getLecture(), course.getID());
+        if (course.getCapacity()>=0 && !(course.getCourseName().equals("")||course.getCourseName()==null)) {
+            String sql = "update course set course_name=?,capacity=?,type=?,lecture=? where id=?";
+            return update(conn, sql, course.getCourseName(), course.getCapacity(), course.getType(), course.getLecture(), course.getID());
+        }else {
+            return 0;
+        }
     }
 
     @Override

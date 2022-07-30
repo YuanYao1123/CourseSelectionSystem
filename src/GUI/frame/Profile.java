@@ -38,7 +38,7 @@ public class Profile extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblNewLabel = new JLabel("Welcome to X Univerisity");
+		JLabel lblNewLabel = new JLabel("Welcome to YZ Univerisity");
 		lblNewLabel.setForeground(new Color(188, 143, 143));
 		lblNewLabel.setFont(new Font("SimSun", Font.BOLD, 22));
 		

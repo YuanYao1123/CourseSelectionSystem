@@ -58,7 +58,7 @@ public class StudentMainPage extends JFrame {
 
 		lbFeedback.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/feedback.png")));
 
-		JLabel lblNewLabel_2 = new JLabel("XUniversity Course Selection System\r\n");
+		JLabel lblNewLabel_2 = new JLabel("YZ University Course Selection System\r\n");
 		lblNewLabel_2.setForeground(SystemColor.activeCaption);
 		lblNewLabel_2.setFont(new Font("SimSun", Font.BOLD, 24));
 

@@ -1,5 +1,8 @@
 package GUI.frame;
 
+import GUI.listener.AdminSelectedCourseAddListener;
+import GUI.listener.AdminSelectedCourseModifyListener;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -17,22 +20,19 @@ import javax.swing.JButton;
 
 public class AdminSelectedCourseModify extends JFrame {
 
+	private SelectedAllCoursesAndStudents parentInstance;
 	private JPanel contentPane;
 	public JTextField tfStudentID;
 	public JTextField tfCourseID;
 	
 	private JLabel lblNewLabel_1;
 	private JButton btnSubmit;
-
-	public static void main(String[] args) {
-		new AdminSelectedCourseModify();
-	}
+	private String oldCourseID;
 
 
-	/**
-	 * Create the frame.
-	 */
-	public AdminSelectedCourseModify() {
+	public AdminSelectedCourseModify(SelectedAllCoursesAndStudents parentInstance,String oldCourseID) {
+		this.parentInstance=parentInstance;
+		this.oldCourseID=oldCourseID;
 		setResizable(false);
 		setBounds(100, 100, 635, 370);
 		contentPane = new JPanel();
@@ -44,13 +44,18 @@ public class AdminSelectedCourseModify extends JFrame {
 		
 		tfStudentID = new JTextField();
 		tfStudentID.setColumns(10);
-		
+		tfStudentID.setEditable(false);
+
+
 		JLabel lblCourseName = new JLabel("CourseID");
 		lblCourseName.setFont(new Font("SimSun", Font.BOLD, 22));
 		
 		tfCourseID = new JTextField();
 		tfCourseID.setColumns(10);
-		
+
+		tfCourseID.setFont(new Font("SimSun", Font.BOLD, 22));
+		tfStudentID.setFont(new Font("SimSun", Font.BOLD, 22));
+
 		lblNewLabel_1 = new JLabel("Modify Selection");
 		lblNewLabel_1.setFont(new Font("SimSun", Font.BOLD, 28));
 		
@@ -103,9 +108,13 @@ public class AdminSelectedCourseModify extends JFrame {
 					.addGap(22))
 		);
 		contentPane.setLayout(gl_contentPane);
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(parentInstance);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
+//		AdminCourseSelectionModifyListener listener=new AdminCourseSelectionModifyListener(this);
+//		btnSubmit.addActionListener(listener);
+		AdminSelectedCourseModifyListener listener=new AdminSelectedCourseModifyListener(this,parentInstance,this.oldCourseID);
+		btnSubmit.addActionListener(listener);
 	}
 
 }

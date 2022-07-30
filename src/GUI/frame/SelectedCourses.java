@@ -35,8 +35,10 @@ public class SelectedCourses extends JFrame {
 	private JPanel contentPane;
 	public JTable courseSelectedTable;
 	public JTextField tfSearch;
+	public JButton btnDelete;
+	public JLabel lblSort;
 	private JTextField tfSort;
-	private JLabel lblSort;
+	public JButton btnRefresh;
 
 
 
@@ -48,82 +50,99 @@ public class SelectedCourses extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1157, 738);
+		setBounds(100, 100, 1159, 759);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		JLabel lblNewLabel = new JLabel("X University");
+
+		JLabel lblNewLabel = new JLabel("YZ University");
 		lblNewLabel.setForeground(new Color(188, 143, 143));
 		lblNewLabel.setFont(new Font("SimSun", Font.BOLD, 28));
-		
+
 		JScrollPane scrollPane = new JScrollPane();
-		
+
 		tfSearch = new JTextField();
 		tfSearch.setColumns(10);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setFont(new Font("SimSun", Font.PLAIN, 22));
 		lblNewLabel_1.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/search.png")));
-		
+
 		lblSort= new JLabel("");
 		lblSort.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
-		
+
 		tfSort = new JTextField();
 		tfSort.setColumns(10);
+
+		btnDelete = new JButton("Delete");
+		btnDelete.setFont(new Font("SimSun", Font.BOLD, 22));
+
+		btnRefresh = new JButton("Refresh");
+		btnRefresh.setForeground(new Color(102, 102, 153));
+		btnRefresh.setFont(new Font("SimSun", Font.BOLD, 22));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(37)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
+				gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
-							.addGap(69)
-							.addComponent(lblNewLabel_1)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-							.addGap(124)
-							.addComponent(lblSort)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap())
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(37)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
+														.addGroup(gl_contentPane.createSequentialGroup()
+																.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
+																.addGap(69)
+																.addComponent(lblNewLabel_1)
+																.addPreferredGap(ComponentPlacement.RELATED)
+																.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+																.addGap(124)
+																.addComponent(lblSort)
+																.addPreferredGap(ComponentPlacement.UNRELATED)
+																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+																.addGap(77)
+																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE))))
+										.addGroup(gl_contentPane.createSequentialGroup()
+												.addContainerGap(1001, Short.MAX_VALUE)
+												.addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)))
+								.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+				gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(31)
-							.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(22)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblNewLabel_1)
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(31)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblSort)
-								.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-					.addGap(10)
-					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(27, Short.MAX_VALUE))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(31)
+												.addComponent(tfSearch, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(22)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblNewLabel_1)
+														.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE)))
+										.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(31)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblSort)
+														.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))))
+								.addGap(10)
+								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+								.addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
 		);
-		
+
 		courseSelectedTable = new JTable();
 		courseSelectedTable.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		courseSelectedTable.setRowHeight(26);
 		courseSelectedTable.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"id", "Course Name", "Lecturer", "Grade"
-			}
+				new Object[][] {
+				},
+				new String[] {
+						"id", "Course Name", "Lecturer", "Grade"
+				}
 		) {
 			boolean[] columnEditables = new boolean[] {
-				false, false, false, false
+					false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -144,6 +163,8 @@ public class SelectedCourses extends JFrame {
 		SelectedCoursesActionListener selectedCoursesActionListener =new SelectedCoursesActionListener(this);
 		SelectedCoursesMouseListener selectedCoursesMouseListener=new SelectedCoursesMouseListener(this);
 		tfSearch.addActionListener(selectedCoursesActionListener);
+		btnDelete.addActionListener(selectedCoursesActionListener);
 		lblSort.addMouseListener(selectedCoursesMouseListener);
+		btnRefresh.addActionListener(selectedCoursesActionListener);
 	}
 }

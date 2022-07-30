@@ -1,25 +1,27 @@
 package GUI.model;
 
+import GUI.frame.SelectedAllCoursesAndStudents;
 import GUI.frame.SelectedCourses;
 import service.LoginWindowService;
+import service.SelectedAllCoursesAndStudentsService;
 import service.SelectedCoursesService;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
-public class SelectedCoursesTableModel {
-    private SelectedCourses instance;
-    private  DefaultTableModel defaultTableModel;
-    private SelectedCoursesService service;
+public class SelectedAllCoursesAndItsStudentsTableModel {
+    private SelectedAllCoursesAndStudents instance;
+    private DefaultTableModel defaultTableModel;
+    private SelectedAllCoursesAndStudentsService service;
 
-    public SelectedCoursesTableModel(SelectedCourses instance) {
+    public SelectedAllCoursesAndItsStudentsTableModel(SelectedAllCoursesAndStudents instance) {
         this.instance = instance;
         defaultTableModel= (DefaultTableModel) instance.courseSelectedTable.getModel();
-        service=new SelectedCoursesService();
+        service=new SelectedAllCoursesAndStudentsService();
     }
 
     public void fillData(){
-        List<Object[]> selectedCoursesAndItsGrade = service.getSelectedCoursesAndItsGrade(LoginWindowService.userID);
+        List<Object[]> selectedCoursesAndItsGrade = service.getAllSelectedCourses();
         defaultTableModel.setRowCount(0);
         for (Object[] course :
                 selectedCoursesAndItsGrade) {

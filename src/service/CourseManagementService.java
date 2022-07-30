@@ -2,25 +2,25 @@ package service;
 
 import dao.CourseDao;
 import dao.CourseDaoImpl;
+import dao.CourseSelectionDao;
 import dao.CourseSelectionDaoImpl;
 import model.Course;
-import model.CourseSelection;
 import utility.DBUtil;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class CourseSelectionService {
+public class CourseManagementService {
     private static List<Course> courseList;
 
-    public List<Course> getUnselectedCourseList(String id) {
+    public List<Course> getAllCourses(){
         Connection conn = null;
         try {
             conn = DBUtil.getConnection();
             CourseDao courseDao = new CourseDaoImpl();
-            courseList=courseDao.getAllUnselectedCourses(conn, id);
+            List<Course> allCoursesList = courseDao.getAllCourses(conn);
+            courseList = allCoursesList;
             return courseList;
         } catch (Exception e) {
             e.printStackTrace();
@@ -30,8 +30,7 @@ public class CourseSelectionService {
         }
     }
 
-
-    public List<Course> getCourseListSortedByName(){
+    public List<Course> getCourseListSortedByCourseName() {
         courseList.sort(new Comparator<Course>() {
             @Override
             public int compare(Course o1, Course o2) {
@@ -41,7 +40,8 @@ public class CourseSelectionService {
         return courseList;
     }
 
-    public Course getSearchedObject(String courseName){
+
+    public Course getSearchedObjectByCourseName(String courseName){
         for (Course course : courseList) {
             if (courseName.equals(course.getCourseName())){
                 return course;
@@ -50,28 +50,22 @@ public class CourseSelectionService {
         return null;
     }
 
-    public int addCourse(List<CourseSelection> courseSelectionList) {
+    public int deleteCourse(String courseID) {
         Connection conn=null;
         try {
             conn = DBUtil.getConnection();
-            CourseSelectionDaoImpl courseSelectionDao=new CourseSelectionDaoImpl();
             CourseDao courseDao=new CourseDaoImpl();
-            for (CourseSelection courseSelection :  courseSelectionList) {
-                Course course = courseDao.getCourseByID(conn, courseSelection.getCourseID());
-                int flag1=courseSelectionDao.add(conn,courseSelection);
-                course.setCapacity(course.getCapacity()+1);
-                int flag2=courseDao.modifyCourse(conn,course);
-                if (flag1==0 || flag2==0){
-                    return 0;
-                }
+            if(courseDao.deleteCourse(conn,courseID)>0){
+                return 1;
+            }else {
+                return 0;
             }
-            return 1;
 
         } catch (Exception e) {
             e.printStackTrace();
-            return 0;
         }  finally {
             DBUtil.closeResources(conn,null,null);
         }
+        return 0;
     }
 }

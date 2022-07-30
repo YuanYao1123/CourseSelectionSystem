@@ -26,10 +26,10 @@ public class CourseSelection extends JFrame {
 	private JPanel contentPane;
 	public JTable courseInfoTable;
 	public JTextField tfSearch;
-	public JTextField tfSort;
 	public JButton btnCancel;
 	public JButton btnSubmit;
 	public JLabel lblSort;
+	public JButton btnRefresh;
 
 	public static void main(String[] args) {
 		new CourseSelection();
@@ -46,7 +46,7 @@ public class CourseSelection extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		JLabel lblNewLabel = new JLabel("X University");
+		JLabel lblNewLabel = new JLabel("YZ University");
 		lblNewLabel.setForeground(new Color(188, 143, 143));
 		lblNewLabel.setFont(new Font("SimSun", Font.BOLD, 28));
 
@@ -68,8 +68,10 @@ public class CourseSelection extends JFrame {
 		lblSort = new JLabel("");
 		lblSort.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 
-		tfSort = new JTextField();
-		tfSort.setColumns(10);
+
+		btnRefresh = new JButton("Refresh");
+		btnRefresh.setForeground(new Color(102, 102, 153));
+		btnRefresh.setFont(new Font("SimSun", Font.BOLD, 22));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 				gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -80,7 +82,7 @@ public class CourseSelection extends JFrame {
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 														.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1086, Short.MAX_VALUE)
 														.addGroup(gl_contentPane.createSequentialGroup()
-																.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
+																.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 213, GroupLayout.PREFERRED_SIZE)
 																.addGap(69)
 																.addComponent(lblNewLabel_1)
 																.addPreferredGap(ComponentPlacement.RELATED)
@@ -88,7 +90,9 @@ public class CourseSelection extends JFrame {
 																.addGap(124)
 																.addComponent(lblSort)
 																.addPreferredGap(ComponentPlacement.UNRELATED)
-																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))))
+																.addPreferredGap(ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
+																.addGap(86))))
 										.addGroup(gl_contentPane.createSequentialGroup()
 												.addContainerGap()
 												.addComponent(btnCancel)
@@ -113,7 +117,8 @@ public class CourseSelection extends JFrame {
 												.addGap(31)
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 														.addComponent(lblSort)
-														.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+														.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))))
 								.addGap(10)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 524, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
@@ -134,7 +139,7 @@ public class CourseSelection extends JFrame {
 				}
 		) {
 			boolean[] columnEditables = new boolean[] {
-					false, false, false, true, false
+					false, false, false, false, false
 			};
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
@@ -162,5 +167,6 @@ public class CourseSelection extends JFrame {
 		btnSubmit.addActionListener(courseSelectionActionListener);
 		btnCancel.addActionListener(courseSelectionActionListener);
 		lblSort.addMouseListener(courseSelectionMouseListener);
+		btnRefresh.addActionListener(courseSelectionActionListener);
 	}
 }
