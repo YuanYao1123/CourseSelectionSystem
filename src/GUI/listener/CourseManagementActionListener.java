@@ -37,13 +37,13 @@ public class CourseManagementActionListener implements ActionListener {
             if (btn== instance.btnAdd){
                 new CourseAdd(instance);
             } else if (btn== instance.btnModify) {
-                int selectedRow = table.getSelectedRow();
-                if (selectedRow>=0) {
+                int[] selectedRow = table.getSelectedRows();
+                if (selectedRow.length==1) {
                     CourseModify courseModify = new CourseModify(instance);
-                    courseModify.tfID.setText((String) table.getValueAt(selectedRow, 0));
-                    courseModify.tfCourseName.setText((String) table.getValueAt(selectedRow, 1));
-                    courseModify.tfCapacity.setText((String) table.getValueAt(selectedRow, 2));
-                    String selectedValue = table.getValueAt(selectedRow, 3).toString();
+                    courseModify.tfID.setText((String) table.getValueAt(selectedRow[0], 0));
+                    courseModify.tfCourseName.setText((String) table.getValueAt(selectedRow[0], 1));
+                    courseModify.tfCapacity.setText((String) table.getValueAt(selectedRow[0], 2));
+                    String selectedValue = table.getValueAt(selectedRow[0], 3).toString();
                     if (selectedValue.contains("Public Compulsory Course")){
                         courseModify.cbType.setSelectedIndex(0);
                     } else if (selectedValue.contains("Specialized Course")) {
@@ -51,18 +51,24 @@ public class CourseManagementActionListener implements ActionListener {
                     } else if (selectedValue.contains("Optional Course")) {
                         courseModify.cbType.setSelectedIndex(2);
                     }
-                    courseModify.tfLecture.setText((String) table.getValueAt(selectedRow, 4));
+                    courseModify.tfLecture.setText((String) table.getValueAt(selectedRow[0], 4));
                 }else {
-                    JOptionPane.showMessageDialog(instance,"Please select a row first!");
+                    JOptionPane.showMessageDialog(instance,"Please select and only select one row!");
                 }
             } else if (btn == instance.btnDelete) {
-                int selectedRow = table.getSelectedRow();
-                String courseID = (String)table.getValueAt(selectedRow, 0);
-                int i = JOptionPane.showConfirmDialog(instance, "Do you really wanna delete this?","Delete",JOptionPane.YES_NO_OPTION);
-                if (i==JOptionPane.YES_OPTION) {
-                    if (service.deleteCourse(courseID) > 0) {
-                        modelGUI.removeRow(selectedRow);
+                int[] selectedRow = table.getSelectedRows();
+                if (selectedRow.length==1) {
+                    String courseID = (String) table.getValueAt(selectedRow[0], 0);
+                    int i = JOptionPane.showConfirmDialog(instance, "Do you really wanna delete this?", "Delete", JOptionPane.YES_NO_OPTION);
+                    if (i == JOptionPane.YES_OPTION) {
+                        if (service.deleteCourse(courseID) > 0) {
+                            modelGUI.removeRow(selectedRow[0]);
+                        }else {
+                            JOptionPane.showMessageDialog(instance,"deleting a row failed");
+                        }
                     }
+                }else {
+                    JOptionPane.showMessageDialog(instance,"Please select and only select one row!");
                 }
             } else if (btn==instance.btnRefresh) {
                 tableModel.fillData();

@@ -52,26 +52,30 @@ public class CourseSelectionService {
 
     public int addCourse(List<CourseSelection> courseSelectionList) {
         Connection conn=null;
-        try {
-            conn = DBUtil.getConnection();
-            CourseSelectionDaoImpl courseSelectionDao=new CourseSelectionDaoImpl();
-            CourseDao courseDao=new CourseDaoImpl();
-            for (CourseSelection courseSelection :  courseSelectionList) {
-                Course course = courseDao.getCourseByID(conn, courseSelection.getCourseID());
-                int flag1=courseSelectionDao.add(conn,courseSelection);
-                course.setCapacity(course.getCapacity()+1);
-                int flag2=courseDao.modifyCourse(conn,course);
-                if (flag1==0 || flag2==0){
-                    return 0;
+        if (courseSelectionList.size()>0) {
+            try {
+                conn = DBUtil.getConnection();
+                CourseSelectionDaoImpl courseSelectionDao=new CourseSelectionDaoImpl();
+                CourseDao courseDao=new CourseDaoImpl();
+                for (CourseSelection courseSelection :  courseSelectionList) {
+                    Course course = courseDao.getCourseByID(conn, courseSelection.getCourseID());
+                    int flag1=courseSelectionDao.add(conn,courseSelection);
+                    course.setCapacity(course.getCapacity()+1);
+                    int flag2=courseDao.modifyCourse(conn,course);
+                    if (flag1==0 || flag2==0){
+                        return 0;
+                    }
                 }
-            }
-            return 1;
+                return 1;
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }  finally {
+                DBUtil.closeResources(conn,null,null);
+            }
+        }else {
             return 0;
-        }  finally {
-            DBUtil.closeResources(conn,null,null);
         }
+        return 0;
     }
 }

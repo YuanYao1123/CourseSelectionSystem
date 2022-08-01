@@ -36,25 +36,32 @@ public class SelectedAllCoursesAndItsStudentsActionListener implements ActionLis
             if (btn== instance.btnAdd){
                new AdminSelectedCourseAdd(instance);
             } else if (btn== instance.btnModify) {
-                int selectedRow = table.getSelectedRow();
-                if (selectedRow>=0) {
-                    String studentID = (String) table.getValueAt(selectedRow, 0);
-                    String oldCourseID = (String) table.getValueAt(selectedRow, 2);
+                int[] selectedRow = table.getSelectedRows();
+                if (selectedRow.length==1) {
+                    String studentID = (String) table.getValueAt(selectedRow[0], 0);
+                    String oldCourseID = (String) table.getValueAt(selectedRow[0], 2);
                     AdminSelectedCourseModify adminSelectedCourseModify = new AdminSelectedCourseModify(instance,oldCourseID);
                     adminSelectedCourseModify.tfStudentID.setText(studentID);
                     adminSelectedCourseModify.tfCourseID.setText(oldCourseID);
                 }else {
-                    JOptionPane.showMessageDialog(instance,"Please select a row first!");
+                    JOptionPane.showMessageDialog(instance,"Please select and only select one row!");
                 }
             } else if (btn == instance.btnDelete) {
-                int selectedRow = table.getSelectedRow();
-                String stuID = (String)table.getValueAt(selectedRow, 0);
-                String courseID = (String)table.getValueAt(selectedRow, 2);
-                int i = JOptionPane.showConfirmDialog(instance, "Do you really wanna delete this?","Delete",JOptionPane.YES_NO_OPTION);
-                if (i==JOptionPane.YES_OPTION) {
-                    if (service.deleteSelectedCourseSelection(stuID, courseID) > 0) {
-                        modelGUI.removeRow(selectedRow);
+                int[] selectedRow = table.getSelectedRows();
+                if (selectedRow.length==1) {
+                    String stuID = (String) table.getValueAt(selectedRow[0], 0);
+                    String courseID = (String) table.getValueAt(selectedRow[0], 2);
+                    int i = JOptionPane.showConfirmDialog(instance, "Do you really wanna delete this?", "Delete", JOptionPane.YES_NO_OPTION);
+                    if (i == JOptionPane.YES_OPTION) {
+                        if (service.deleteSelectedCourseSelection(stuID, courseID) > 0) {
+                            modelGUI.removeRow(selectedRow[0]);
+                        } else {
+                            JOptionPane.showMessageDialog(instance, "deleting a row failed");
+
+                        }
                     }
+                }else {
+                    JOptionPane.showMessageDialog(instance,"Please select and only select one row!");
                 }
             } else if (btn==instance.btnRefresh) {
                 tableModel.fillData();

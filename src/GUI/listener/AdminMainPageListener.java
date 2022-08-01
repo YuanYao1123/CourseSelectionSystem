@@ -21,8 +21,6 @@ public class AdminMainPageListener implements MouseListener {
             new CourseManagement();
         } else if (label==instance.lbCoursesSelectionInfo) {
             new SelectedAllCoursesAndStudents();
-        } else if (label==instance.lbFeedbackAdmin) {
-            JOptionPane.showMessageDialog(instance, "To Be Built");
         }
     }
 

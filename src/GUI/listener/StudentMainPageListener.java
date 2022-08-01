@@ -29,8 +29,6 @@ public class StudentMainPageListener implements MouseListener {
             new CourseSelection();
         } else if (label==instance.lbSelectedCourses) {
             new SelectedCourses();
-        } else if (label==instance.lbFeedback) {
-            JOptionPane.showMessageDialog(instance, "To Be Built");
         }
     }
 

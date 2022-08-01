@@ -37,7 +37,6 @@ public class SelectedCourses extends JFrame {
 	public JTextField tfSearch;
 	public JButton btnDelete;
 	public JLabel lblSort;
-	private JTextField tfSort;
 	public JButton btnRefresh;
 
 
@@ -71,8 +70,6 @@ public class SelectedCourses extends JFrame {
 		lblSort= new JLabel("");
 		lblSort.setIcon(new ImageIcon(CourseSelection.class.getResource("/image/sort.png")));
 
-		tfSort = new JTextField();
-		tfSort.setColumns(10);
 
 		btnDelete = new JButton("Delete");
 		btnDelete.setFont(new Font("SimSun", Font.BOLD, 22));
@@ -98,7 +95,6 @@ public class SelectedCourses extends JFrame {
 																.addGap(124)
 																.addComponent(lblSort)
 																.addPreferredGap(ComponentPlacement.UNRELATED)
-																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 																.addGap(77)
 																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE))))
 										.addGroup(gl_contentPane.createSequentialGroup()
@@ -123,7 +119,6 @@ public class SelectedCourses extends JFrame {
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 														.addComponent(lblSort)
 														.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-																.addComponent(tfSort, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 																.addComponent(btnRefresh, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))))
 								.addGap(10)
 								.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 577, GroupLayout.PREFERRED_SIZE)

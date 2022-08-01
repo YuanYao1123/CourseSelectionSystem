@@ -26,7 +26,6 @@ public class StudentMainPage extends JFrame {
 
 	public JLabel lbProfile;
 	public JLabel lbCourseSelection;
-	public JLabel lbFeedback;
 	public JLabel lbSelectedCourses;
 	public static void main(String[] args) {
 		StudentMainPage frame = new StudentMainPage();
@@ -35,7 +34,7 @@ public class StudentMainPage extends JFrame {
 
 	public StudentMainPage() {
 		setResizable(false);
-		setBounds(100, 100, 1403, 574);
+		setBounds(100, 100, 1311, 574);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -48,15 +47,8 @@ public class StudentMainPage extends JFrame {
 		JLabel lblCourseSelection = new JLabel("Course Selection");
 		lblCourseSelection.setFont(new Font("SimSun", Font.BOLD, 37));
 
-		JLabel lblFeedback = new JLabel("Feedback");
-		lblFeedback.setFont(new Font("SimSun", Font.BOLD, 37));
-
 		lbCourseSelection = new JLabel("");
 		lbCourseSelection.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/courseselection.png")));
-
-		lbFeedback = new JLabel("");
-
-		lbFeedback.setIcon(new ImageIcon(StudentMainPage.class.getResource("/image/feedback.png")));
 
 		JLabel lblNewLabel_2 = new JLabel("YZ University Course Selection System\r\n");
 		lblNewLabel_2.setForeground(SystemColor.activeCaption);
@@ -72,13 +64,6 @@ public class StudentMainPage extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("Selected Courses");
 		lblNewLabel_3.setFont(new Font("SimSun", Font.BOLD, 37));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-
-		lbProfile.addMouseListener(new StudentMainPageListener(this));
-		lbCourseSelection.addMouseListener(new StudentMainPageListener(this));
-		lbSelectedCourses.addMouseListener(new StudentMainPageListener(this));
-		lbFeedback.addMouseListener(new StudentMainPageListener(this));
-
-
 		gl_contentPane.setHorizontalGroup(
 				gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -91,34 +76,27 @@ public class StudentMainPage extends JFrame {
 												.addComponent(lbProfile, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)))
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(97)
-												.addComponent(lbCourseSelection, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE))
+												.addPreferredGap(ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+												.addComponent(lbCourseSelection, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+														.addGroup(gl_contentPane.createSequentialGroup()
+																.addGap(15)
+																.addComponent(lbWelcome, GroupLayout.PREFERRED_SIZE, 405, GroupLayout.PREFERRED_SIZE)
+																.addGap(158))
+														.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+																.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+																.addComponent(lbSelectedCourses, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
+																.addGap(123))))
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(34)
-												.addComponent(lblCourseSelection, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)))
-								.addGap(18)
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-												.addPreferredGap(ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-												.addComponent(lbSelectedCourses, GroupLayout.PREFERRED_SIZE, 216, GroupLayout.PREFERRED_SIZE)
-												.addGap(106))
-										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(18)
+												.addGap(156)
+												.addComponent(lblCourseSelection, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
 												.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED)))
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-												.addComponent(lbFeedback)
-												.addGap(61))
-										.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-												.addComponent(lblFeedback, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)
-												.addGap(89))))
+												.addGap(48))))
 						.addGroup(gl_contentPane.createSequentialGroup()
 								.addGap(20)
 								.addComponent(lblNewLabel_2)
-								.addPreferredGap(ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
-								.addComponent(lbWelcome, GroupLayout.PREFERRED_SIZE, 405, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap())
+								.addContainerGap(798, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 				gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -127,33 +105,26 @@ public class StudentMainPage extends JFrame {
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblNewLabel_2)
 										.addComponent(lbWelcome, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addPreferredGap(ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addPreferredGap(ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-																.addComponent(lbProfile, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
-																.addGap(82))
-														.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-																.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																		.addComponent(lbSelectedCourses, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
-																		.addComponent(lbCourseSelection, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE))
-																.addGap(61))))
+												.addComponent(lbProfile, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+												.addGap(82))
 										.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(87)
-												.addComponent(lbFeedback)
-												.addPreferredGap(ComponentPlacement.RELATED)))
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-												.addComponent(lblNewLabel)
-												.addComponent(lblFeedback, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-												.addPreferredGap(ComponentPlacement.RELATED)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-														.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
-														.addComponent(lblCourseSelection, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))))
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+														.addComponent(lbSelectedCourses, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
+														.addComponent(lbCourseSelection, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE))
+												.addGap(61)))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblNewLabel)
+										.addComponent(lblCourseSelection, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
 								.addGap(85))
 		);
+
+		lbProfile.addMouseListener(new StudentMainPageListener(this));
+		lbCourseSelection.addMouseListener(new StudentMainPageListener(this));
+		lbSelectedCourses.addMouseListener(new StudentMainPageListener(this));
 		contentPane.setLayout(gl_contentPane);
 		setLocationRelativeTo(null);
 		setVisible(true);

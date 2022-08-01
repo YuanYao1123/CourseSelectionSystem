@@ -11,8 +11,11 @@ public class UserAccountDaoImpl extends BaseDAO<UserAccount> implements UserAcco
 
     @Override
     public UserAccount search(Connection conn, UserAccount userAccount) {
+        if("".equals(userAccount.getUserID()) || userAccount.getUserID()==null || "".equals(userAccount.getPassword()) || userAccount.getPassword()==null){
+            return null;
+        }
         String sql="select user_id userID,password from user_account where user_id=? and password=?";
-        return getInstance(conn, sql, userAccount.getUserID(), userAccount.getPassword());
+        return getInstance(conn, sql, userAccount.getUserID().trim(), userAccount.getPassword().trim());
     }
 
     public int batchAddData(){
