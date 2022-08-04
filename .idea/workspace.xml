@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e543a4e4-2970-4f69-9a49-5c58438b2355" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/AdminMainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/frame/SelectedCourses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/SelectedCourses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/frame/StudentMainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/listener/AdminMainPageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/listener/AdminMainPageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/listener/CourseManagementActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/listener/CourseManagementActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/listener/SelectedAllCoursesAndItsStudentsActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/listener/SelectedAllCoursesAndItsStudentsActionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/listener/StudentMainPageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/listener/StudentMainPageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/abortedOrWrongClass/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/abortedOrWrongClass/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UserAccountDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UserAccountDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/listener/SelectedCoursesActionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/listener/SelectedCoursesActionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/CourseManagementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CourseManagementService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/CourseSelectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/CourseSelectionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,10 +55,10 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git"
+    "settings.editor.selected.configurable": "web.server"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -95,7 +87,7 @@
       <recent name="utility.dbutil" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LogIn">
+  <component name="RunManager" selected="Application.GUI.frame.LogIn">
     <configuration name="AdminMainPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.frame.AdminMainPage" />
       <module name="CourseSelectionSystem" />
@@ -109,34 +101,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LogIn" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="CourseManagement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.frame.CourseManagement" />
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.frame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GUI.frame.LogIn" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.frame.LogIn" />
-      <module name="CourseSelectionSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.frame.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SelectedAllCoursesAndStudents" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.SelectedAllCoursesAndStudents" />
-      <module name="CourseSelectionSystem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="GUI.frame.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SelectedCourses" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI.frame.SelectedCourses" />
       <module name="CourseSelectionSystem" />
       <extension name="coverage">
         <pattern>
@@ -161,20 +140,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DBUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CourseSelectionSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utility.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="utility" />
+      <option name="MAIN_CLASS_NAME" value="utility.DBUtil" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.CourseManagement" />
       <item itemvalue="Application.AdminMainPage" />
-      <item itemvalue="Application.LogIn" />
-      <item itemvalue="Application.SelectedCourses" />
+      <item itemvalue="Application.GUI.frame.LogIn" />
       <item itemvalue="Application.StudentMainPage" />
-      <item itemvalue="Application.SelectedAllCoursesAndStudents" />
+      <item itemvalue="JUnit.DBUtil" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LogIn" />
+        <item itemvalue="Application.GUI.frame.LogIn" />
+        <item itemvalue="Application.CourseManagement" />
+        <item itemvalue="JUnit.DBUtil" />
         <item itemvalue="Application.StudentMainPage" />
         <item itemvalue="Application.AdminMainPage" />
-        <item itemvalue="Application.SelectedCourses" />
-        <item itemvalue="Application.SelectedAllCoursesAndStudents" />
       </list>
     </recent_temporary>
   </component>
@@ -186,7 +180,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658227417587</updated>
-      <workItem from="1658237212576" duration="231664000" />
+      <workItem from="1658237212576" duration="248143000" />
     </task>
     <task id="LOCAL-00001" summary="first commit.&#10;Main work:GUI of the system and DButil class">
       <created>1658393315863</created>
@@ -237,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659170115461</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fixed several bugs by found by us. temporarily delete the feedback function">
+      <created>1659365070956</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1659365070956</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +252,8 @@
     <MESSAGE value="1. cancel singleton pattern cause problems(when closing the JFrame, the single object will be lost). &#10;2. finish the complete and fully-functional programs of Login,StudentMainPage" />
     <MESSAGE value="1, Totally refactor the Database related codes, including DBUtil class and DAO layer, including like 1.1 using generic dao class and introducing inheritance and interfaces to improve code readability, extensibility and maintainability, making codes more standardized. &#10; 1.2 Changing the exception handling&#10; 1.3 Fixing wrong codings of return type. &#10;2. Finish all parts of DAO layer&#10;3. Finish all functions of normal users, form front end to back end.&#10;4. Improve the database tables and also fill in hundreds of data into them automatically" />
     <MESSAGE value="Finish developing. Complete most functions. Fixing all bugs when testing. &#10;Two function to be developed: &#10;1. Fuzzy queries in all other tables besides &quot;SelectedAllCoursesAndItsStudentsTable&quot;&#10;2. Feedback function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish developing. Complete most functions. Fixing all bugs when testing. &#10;Two function to be developed: &#10;1. Fuzzy queries in all other tables besides &quot;SelectedAllCoursesAndItsStudentsTable&quot;&#10;2. Feedback function" />
+    <MESSAGE value="fixed several bugs by found by us. temporarily delete the feedback function" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed several bugs by found by us. temporarily delete the feedback function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -268,6 +270,27 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="8" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/GUI/frame/CourseManagement.java</url>
+          <line>43</line>
+          <properties field="lblSort" class="GUI.frame.CourseManagement" />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/service/SelectedCoursesService.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/service/SelectedCoursesService.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/service/SelectedCoursesService.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

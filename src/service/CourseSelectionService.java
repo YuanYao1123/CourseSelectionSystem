@@ -60,7 +60,7 @@ public class CourseSelectionService {
                 for (CourseSelection courseSelection :  courseSelectionList) {
                     Course course = courseDao.getCourseByID(conn, courseSelection.getCourseID());
                     int flag1=courseSelectionDao.add(conn,courseSelection);
-                    course.setCapacity(course.getCapacity()+1);
+                    course.setCapacity(course.getCapacity()-1);
                     int flag2=courseDao.modifyCourse(conn,course);
                     if (flag1==0 || flag2==0){
                         return 0;

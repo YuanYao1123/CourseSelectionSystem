@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SelectedCoursesActionListener implements ActionListener {
     private SelectedCourses instance;
@@ -38,6 +39,7 @@ public class SelectedCoursesActionListener implements ActionListener {
             if ((JButton)source==instance.btnDelete) {
                 JButton btnDelete = (JButton) source;
                 int[] selectedRows = instance.courseSelectedTable.getSelectedRows();
+                System.out.println(Arrays.toString(selectedRows));
                 ArrayList<CourseSelection> courseSelectionList = new ArrayList<>();
                 for (int rowIndex :
                         selectedRows) {
@@ -53,6 +55,8 @@ public class SelectedCoursesActionListener implements ActionListener {
                             DefaultTableModel modelGUI = (DefaultTableModel) instance.courseSelectedTable.getModel();
                             modelGUI.removeRow(selectedRows[j]);
                         }
+                    }else {
+                        System.out.println("deleting failed!");
                     }
                 }
             } else if ((JButton) source == instance.btnRefresh) {

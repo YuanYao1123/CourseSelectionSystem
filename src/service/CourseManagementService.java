@@ -8,11 +8,13 @@ import model.Course;
 import utility.DBUtil;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class CourseManagementService {
     private static List<Course> courseList;
+    private static List<Object[]> list=new ArrayList<Object[]>();
 
     public List<Course> getAllCourses(){
         Connection conn = null;
